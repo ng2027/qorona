@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- link to resources -->
+	<title>Qorona - Covid-19 Info</title>
+	<meta charset="UTF-8">
+	<meta name= "author" acontent="Qorona Limited">
+	<meta name="description" content="...">
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/main.css">
+	<link rel="icon" type="image/gif/png" href="../resources/images/icon/logo.png">
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/control-center.css">
+	<script src="../resources/scripts/cc.js"></script>
+	<link rel="stylesheet" type="text/css" href="covid-info.css">
+
+	
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/login.css">
+
+	<style type="text/css">
+		body{
+			background-color: #A80C3B;
+
+		}
+	</style>
+
+<!-- 	login logout function -->
+	<script>
+		function login(){
+				setTimeout(() => window.parent.location.href = '../login-html/login.html',200 )
+			}
+		function logout(){
+			localStorage.setItem('loggedin', false)
+			localStorage.setItem('redirect_time', 2790)
+			localStorage.setItem('redirect', '../index.html')
+			setTimeout(() => window.parent.location.href = '../resources/loading.html',2000 )
+		}
+	</script>
+</head>
+<body>
+
+
+	<header style="height:20%;">
+
+		<div id="control-center" onclick="animateControlCenter();" style="transform: rotate(90deg);">
+			<div class="control-center-line"></div><br>
+			<div class="control-center-line" style="top:-5px;"></div><br>
+			<div class="control-center-line" style="top:-10px;"></div><br>
+		</div>
+
+
+		<div id="control-center-div">
+			<br><br><br>
+			<div onclick="redirect_index('profile')"><a href="#" class="control-center-link border-ccl" ><span id="indexOrProfile">
+				Index
+			</span></a></div>
+			<div onclick="redirect_index('map')"><a href="#" class="control-center-link border-ccl" ><span >Stats Map</span></a></div>
+			<div onclick="redirect_index('question')"><a href="#" class="control-center-link border-ccl" ><span>Questionnaire</span></a></div>
+			<div onclick="redirect_index('faq')"><a href="#" class="control-center-link border-ccl" ><span >FAQ</span></a></div>
+
+			<br><br>
+			<br><br><br>
+			<div id="bottom-cc">
+			<a href="#" style="padding-left: 7%;">
+				<button type="button" id="login-button" class="login-or-logout" onclick="login()">Login</button>
+			</a>
+			<a href="#" style="margin-left: 1px;">	
+				<button type="button" id="logout-button"  class="login-or-logout" onclick="logout()">Logout</button>
+			</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var logged_in = localStorage.getItem('loggedin')
+
+			if(logged_in == 'true'){
+				document.getElementById('indexOrProfile').innerHTML = 'Profile'
+
+			}
+	
+			function redirect_index(src_page){
+				// checks if user logged in if yes shows profile if not goes to index
+				if (src_page == 'profile'){
+					if (localStorage.getItem('loggedin') != 'true'){
+
+						setTimeout(() => {window.parent.location.href = "../index.html"}, 200)
+						
+					}
+
+					else{
+						window.parent.location.href = "../homepage.html"
+						
+						
+						
+					}
+					
+					return
+				}
+
+				else if (src_page == 'faq'){
+					localStorage.setItem('redirect_time', 10)
+					localStorage.setItem('redirect', '../faq.html')
+				}
+				else if (src_page == 'question'){
+					localStorage.setItem('redirect_time', 2231)
+					localStorage.setItem('redirect', '../questionnare/questionnare.html')
+				}
+				else if (src_page == 'map'){
+					localStorage.setItem('redirect_time', 500)
+					localStorage.setItem('redirect', '../stats-map/map.html')
+				}
+
+				window.parent.location.href= '../resources/loading.html'
+
+			}
+		</script>
+
+
+
+		<div id="title-stats">
+			<h1 >Qatar Statistics</h1>
+		</div>
+
+		<div id="pfp">
+			<img src="../qr-code/healthy.png" id="pfp_img">
+		</div>
+
+	</header>
+
+
+	<hr id="hr">
+
+	<!-- the data is placed in the specific container after requesting from the endpoint -->
+
+	<section>
+		<div  class="right-div-info" style="background-color: #A80C3B;">
+			<table style="height: 100%;">
+				<td><hr style="width: 100%;height: 500px;background-color: white;"></td>
+				<td>
+					<div id="date-placeholder"></div><hr>
+					<br><br>
+					<img src="../resources/images/covid-info/active.png" class="active-img"><br><br>
+					<h3 style="display: block;position:relative; left:0%;font-size:1.4em;">Active Cases</h3>
+					<div class="covid-stat" style="position: relative;top: -40px;font-size:1.2em;" id="active-cases"></div>
+					<table width="100%">
+						<tr>
+							<td width="25%"><img src="../resources/images/covid-info/success.png" width="50%" style="position: relative;right:-30%;"></td>
+							<td width="25%"><h3 style="left: 0%;top: 0px;">Recovery Rate</h3></td>
+							<td width="25%"><img src="../resources/images/covid-info/death-beat.png" width="85%"></td>
+							<td width="25%"><h3 style="left: 0%;top: 0px;">Death Rate</h3> </td>
+						</tr>
+						<tr>
+							<td colspan="2" class="covid-stat" id="recovery-rate"></td>
+							<td colspan="2" class="covid-stat" id="death-rate"></td>
+						</tr>
+					</table>
+
+					<br><br>
+					<a href="tel:1600" class="a-hotline">
+						<div class="hotline">
+							<span id="hotline-span">Hotline - 16000</span>
+						</div>
+					</a>
+				</td>
+			</table>
+		</div>
+		
+		<div class="data-section" style="height: 40%;">
+			<table  width="70%" style="height: 40%;">
+				<tr>
+
+					<td colspan="4">
+					<h2 class="subtitle-header" id="daily-header">Daily Updates</h2>
+					</td>
+				</tr>
+				<tr>
+					<td width="33%">
+						<div>&nbsp&nbsp
+							<img src="../resources/images/covid-info/positive.png" class="small-img">
+							<h3>Positive Cases</h3></div>
+
+					</td>
+					
+					<td width="33%">
+						<div>&nbsp&nbsp
+							<img src="../resources/images/covid-info/death.png" class="small-img" style="top:18px;">&nbsp&nbsp
+							<h3 style="top:-5px;">Number of deaths</h3>
+						</div>					
+					</td>
+					
+					<td width="33%">
+						<div>&nbsp&nbsp
+							<img src="../resources/images/covid-info/recovered.png" class="small-img" style="top:18px;width:40%;" >&nbsp&nbsp
+							<h3 style="top:-20.5px;left:-8%;">Recovered</h3>
+						</div>					
+					</td>
+				</tr>
+				<tr>
+					<td class="covid-stat" id="today-confirm"><div></div></td>
+					<td class="covid-stat" id="today-death"><div></div></td>
+					<td class="covid-stat" id="today-recover"><div></div></td>
+				</tr>
+
+				
+			</table>
+			<br>
+		</div>
+
+	</section>
+	<hr id="hr">
+	<section>
+<div class="data-section" style="height: 40%;">
+
+			<table  width="70%" style="height: 40%;">
+				<tr>
+					<td colspan="5">
+					<h2 class="subtitle-header" id="daily-header">Total Cases</h2>
+					</td>
+				</tr>
+				<tr>
+					<td width="33%">
+						<div>&nbsp&nbsp
+							<img src="../resources/images/covid-info/positive.png" class="small-img">
+							<h3>Positive Cases</h3></div>
+
+					</td>
+					
+					<td width="33%">
+						<div>&nbsp&nbsp
+							<img src="../resources/images/covid-info/death.png" class="small-img" style="top:18px;">&nbsp&nbsp
+							<h3 style="top:-5px;">Number of deaths</h3>
+						</div>					
+					</td>
+					
+					<td width="33%">
+						<div>&nbsp&nbsp
+							<img src="../resources/images/covid-info/recovered.png" class="small-img" style="top:18px;width:40%;" >&nbsp&nbsp
+							<h3 style="top:-20.5px;left:-8%;">Recovered</h3>
+						</div>					
+					</td>
+				</tr>
+				<tr>
+					<td class="covid-stat" id="total-confirm"></td>
+					<td class="covid-stat" id="total-death"></td>
+					<td class="covid-stat" id="total-recover"></td>
+				</tr>
+
+				
+			</table>
+
+		</div>
+		
+	</section>
+
+	<script type="text/javascript" src="covid-info.js"></script>
+	<!-- script used to get the statistics on the number of cases etc -->
+
+
+
+
+	<script>  //js script used to display the current status of the user
+
+		var logged_in = localStorage.getItem('loggedin')
+		
+		if (logged_in == 'true'){
+			
+			document.getElementById('pfp_img').style.display = 'inherit'
+		}
+		var status = localStorage.getItem('status')
+		console.log(status)
+		if (status == 'healthy'){
+			document.getElementById('pfp_img').src = '../qr-code/healthy.png'
+		}
+		else if (status == 'confirmed'){
+
+			document.getElementById('pfp_img').src = '../qr-code/confirmed.png'
+		}
+		else if (status == 'suspected'){
+			document.getElementById('pfp_img').src = '../qr-code/suspected.png'
+		}
+		else if (status == 'unknown' || status == "quarantined"){
+			document.getElementById('pfp_img').src = '../qr-code/quarantined.png'
+		}
+	</script>
+
+
+
+
+
+</body>
+</html>

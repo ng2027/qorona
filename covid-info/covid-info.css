@@ -1,0 +1,138 @@
+/*css stylesheet for covid-info*/
+
+#title-stats{
+	display: inline-block;
+	color: white;
+	text-align: center;
+	position: relative;
+	left:47.2%;
+	transform: translate(-50%, 0%);
+	text-shadow:4px 4px 10px black;
+}
+
+
+#pfp{
+	display: inline-block;
+	height:30.5%; 
+	position: absolute;
+	right: 4%;
+	top:2%;
+}
+
+
+#pfp_img{
+	display: none;
+	height: inherit;
+	position: inherit;
+	right: inherit;
+	top: inherit;
+}
+
+#hr{
+	height: 3px;
+	background-color: white;
+}
+
+
+
+.subtitle-header{
+	text-align: center;
+	color: white;
+	font-size:1.75em;
+}
+
+
+.data-div{
+	display: inline-block;
+}
+
+.data-section{
+	width: 100%;
+
+}
+
+h3{
+	color: white;
+	
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	left: 5%;
+	top: -30px;
+}
+
+.small-img{
+	display: inline-flex;
+	width:30%;
+	position: relative;
+
+	left: 5%;
+
+}
+
+.covid-stat{
+	color: white;
+	text-align: center;
+	font-size: 1.2em;
+	position: relative;
+	top: -20px;
+}
+
+
+.right-div-info{
+	position: absolute;
+	right: 0%; 
+
+	height: 81%;
+	width:30%;
+	overflow: hidden;
+}
+
+.active-img{
+	position: relative;
+	left:50%;
+	transform: translate(-50%, 0%);
+	width:35%;
+}
+
+.hotline{
+	background-color: #2ecc71;
+	height: 50px;
+	width:75%;
+	position: relative;
+	left:50%;
+	transform: translate(-50%, 0%);
+	text-align: center;
+	border-radius: 20px;
+}
+
+
+#hotline-span{
+	position: relative;
+	top:25%;
+	transform: translate(0%, -50%);
+	background-color: #2ecc71;
+	color: white;
+	text-shadow: 3px 3px 10px black;
+	font-size: 1.5em;
+}
+
+.a-hotline{
+	background-color: #2ecc71;
+	text-decoration: none;
+}
+
+.hotline:hover{
+	width: 85%;
+	height: 60px;
+}
+
+#date-placeholder{
+	color: white;
+	text-align:left;
+	font-weight: bold;
+	font-size: 1.5em;
+	position: relative;
+	left: 10%;
+
+}
