@@ -1,0 +1,377 @@
+
+#map-parent {
+    left: 30%;
+    top: 10%;
+    position: fixed;
+    ;
+    
+}
+
+
+
+#map {
+    position: absolute;
+    height: 80%;
+    width: 40%;
+    left: 30.3%;
+    top: 6.3%;
+}
+
+.coordinate {
+    width: 23.7px;
+    height: 33.75px;
+    display: inline-block;
+    margin-right: -0.9%;
+
+}
+
+
+.row1 {
+    position: fixed;
+    opacity: 40%;
+    max-width: 680px;
+    left: 30%;
+    top: 10%;
+    pointer-events: none;
+     
+
+}
+.row2 {
+    position: fixed;
+    left: 50.2%;
+    top: 10%;
+    pointer-events: none;
+    opacity: 40%;
+}
+
+.row3 {
+    position: fixed;
+    left: 30%;
+    top: 14%;
+    display: inline-block;
+    pointer-events: none;
+    opacity: 40%;
+
+}
+.row4 {
+    position: fixed;
+    left: 50.2%;
+    display: inline-block;
+    pointer-events: none;
+    top: 14%;
+    opacity: 40%;
+
+}
+.row5 {
+    position: fixed;
+    left: 30%;
+    display: inline-block;
+     
+
+    top: 18%;
+    opacity: 40%;
+
+}
+.row6 {
+    position: fixed;
+    left: 50.2%;
+     
+
+
+    opacity: 40%;
+
+    top: 18%;
+}
+.row7{
+    position: fixed;
+    left: 30%;
+     
+
+
+    opacity: 40%;
+    top: 22%;
+}
+.row8 {
+    position: fixed;
+    left: 50.2%;
+     
+
+    opacity: 40%;
+    top: 22%;
+}
+.row9 {
+    position: fixed;
+    left: 30%;
+     
+    opacity: 40%;
+    top: 26%;
+}
+.row10 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 26%;
+     
+
+}
+
+.row11 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 30%;
+
+}
+
+
+.row12 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 30%;
+}
+
+
+.row13 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 34%;
+}
+
+.row14 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 34%;
+}
+
+.row15 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 38%;
+}
+
+.row16 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 38%;
+}
+
+.row17 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 42%;
+}
+
+.row18 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 42%;
+}
+
+.row19 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 46%;
+}
+
+.row20 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 46%;
+}
+
+.row21 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 46%;
+}
+.row22 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 46%;
+}
+.row23 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 50%;
+}
+.row24 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 50%;
+}
+.row25 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 54%;
+}
+.row26 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 54%;
+}
+.row27 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 58%;
+}
+.row28 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 58%;
+}
+.row29 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 62%;
+}
+.row30 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 62%;
+}
+.row31 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 66%;
+}
+.row32 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 66%;
+}
+.row33 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 70%;
+}
+.row34 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 70%;
+}
+.row35 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 74%;
+}
+.row36 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 74%;
+}
+.row37 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 78%;
+}
+.row38 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 78%;
+    
+
+}
+.row39 {
+    position: fixed;
+    left: 30%;
+    opacity: 40%;
+    top: 82%;
+    
+
+}
+.row40 {
+    position: fixed;
+    left: 50.2%;
+    opacity: 40%;
+    top: 82%; 
+    
+}
+
+
+#infoStatsdiv {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    height: 200px;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    
+      
+     
+}
+
+
+#infoStats{
+    position: relative;
+    top: 20%;
+    left: 50%;
+    width: 250%;
+    height: 24%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+#outerStats {
+    width:24%;
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    background-color: bisque;
+    border:2px solid crimson;
+    right: 5%;
+    transform: translate(0%, -50%);
+    border-radius: 10px;
+    overflow-wrap: break-word;
+}
+
+h1 {
+    text-shadow: 4px 4px 10px black;
+}
+
+.stats-info {
+    position: absolute;
+    top: 10%;
+    width: 20%;
+    color: white;
+    text-shadow: 3px 3px 10px crimson;
+    left: 4.5%;
+    line-height: 1.4;
+    font-weight: 300;
+    overflow-wrap: break-word;
+    font-size: 0.9em;
+    /*background-color: #A82937;*/
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
