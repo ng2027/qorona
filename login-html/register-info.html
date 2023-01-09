@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<meta charset="UTF-8">
+	<meta name= "author" acontent="Qorona Limited">
+	<meta name="description" content="...">
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/main.css">
+	<link rel="icon" type="image/gif/png" href="../resources/images/icon/logo.png">
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/control-center.css">
+	<script src="../resources/scripts/login.js"></script>
+	<script src="../resources/scripts/control-center-animation.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/login.css">
+	<style type="text/css">
+		*{
+			background-color: #8d1b3d;
+		}
+		.logo-back{
+			width:6.5%;
+			height:5%;
+			background-color: rgb(246,190,190);
+			border:2px solid black;
+
+		}
+
+		.img-back{
+			background-color: transparent;
+			position: relative;
+			top:50%;
+			left: 65%;
+			transform: translate(-50%,-10%);
+		}
+	</style>	
+
+	<script>
+		// function confirms exit
+		function exit_page(){
+			var exit = confirm('Are you sure you want to exit this page?')
+
+			if(exit == true){
+				// reset local storaye
+				localStorage.setItem('email', "")
+				localStorage.setItem('password', "")
+				localStorage.setItem('qid', "")
+				localStorage.setItem('phone', "")
+				localStorage.setItem('birthday', "")
+				localStorage.setItem('fullname', "")
+				localStorage.setItem('address', "")
+				localStorage.setItem('redirect', "../index.html")
+				// redirect to loading screen
+				setTimeout(() => window.parent.location.href = '../resources/loading.html',2000 )
+			}
+
+
+		}
+
+		var is_logged_in = localStorage.getItem('loggedin')
+
+		if (is_logged_in == 'true'){
+			window.parent.location.href = '../homepage.html'
+		}
+
+	</script>
+</head>
+<body>
+	<div class="logo-back" onclick="exit_page()">
+		<img src="../resources/images/icon/logo.png" width="85%" class="img-back">
+	</div>
+	<div id="sigin-central" style="overflow: hidden;">
+		<br>
+		<form class="white-background" id="register-form">
+			<h2 class="white-background" id="login-title">Personal Details</h2><br><br>
+			
+			<div class="input-form white-background" style="top:65%;">
+				<p class="white-background register-p" >Please complete the personal information, to complete the registeration.</p>
+				<div class="error-msg-login white-background" id="error-box" style="top:2.5%;font-size:0.8em; width: 300%;"></div><br><br>
+				<label class="white-background label-bday"  > Full Name:</label><br><br>
+				<input type="text" id="full-name" placeholder="Full Name" class="login-input">
+				<br><br>
+				<label class="white-background label-bday" for="adddress" > Address:</label><br><br>
+				<!-- <input type="text" id="username" placeholder="Username" class="login-input"> -->
+				<select name="address" id="address" class="login-input" >
+					<!-- location dropdown for address -->
+				  <option value="Doha" class="white-background">Doha</option>
+				  <option value="Al Khor" class="white-background">Al Khor</option>
+				  <option value="Al Wakrah" class="white-background">Al Wakrah</option>
+				  <option value="Mesaieed" class="white-background">Mesaieed</option>
+				  <option value="Dukhan" class="white-background">Dukhan</option>
+				  <option value="Lusail" class="white-background">Lusail</option>
+				  <option value="Al Rayan" class="white-background">Al Rayan</option>
+				  <option value="Ras Laffan" class="white-background">Ras Laffan</option>
+				  <option value="Al Ruwais" class="white-background">Al Ruwais</option>
+				  <option value="Al Dhakira" class="white-background">Al Dhakira</option>
+				  <option value="Other City" class="white-background">Other Area,Inside Qatar</option>
+				  <option value="Outside of Qatar" class="white-background">Outside of Qatar</option>
+				</select>
+
+				<br><br>
+				<label class="white-background label-bday"  > Birthday:</label><br><br>
+				<input type="date" id="bday" class="login-input"><br><br>
+				<div class="white-background">
+					<button type="button" class="submit-button" onclick="register_info()">Register</button>
+				</div>
+
+				
+
+			
+
+				<br><br><br><br>
+				
+<!-- 				<div class="white-background" id="forgot-password-box" ></div>
+				<hr><br>
+				<span class="white-background">
+					Don't have an account? <br><br> <input type="button" id="register" value="Sign Up" onclick="window.location.href='signin.html'">
+				</span> -->
+			</div>
+			 
+
+		</form>
+	</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reset Password</title>
+	<meta charset="UTF-8">
+	<meta name= "author" acontent="Qorona Limited">
+	<meta name="description" content="...">
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/main.css">
+	<link rel="icon" type="image/gif/png" href="../resources/images/icon/logo.png">
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/control-center.css">
+	<script src="../resources/scripts/control-center-animation.js"></script>
+	<script src="../resources/scripts/login.js"></script>
+	<link rel="stylesheet" type="text/css" href="../resources/stylesheets/login.css">
+	<style type="text/css">
+		*{
+			background-color: #8d1b3d;
+		}
+		input.login-input{
+			width:120%;
+			position: relative;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,3.5%);
+		}
+
+		.logo-back{
+			width:6.5%;
+			height:5%;
+			background-color: rgb(246,190,190);
+			border:2px solid black;
+
+		}
+
+		.img-back{
+			background-color: transparent;
+			position: relative;
+			top:50%;
+			left: 65%;
+			transform: translate(-50%,-10%);
+		}
+	</style>
+
+	<script type="text/javascript">
+		hide_password = true;
+
+		function hide_Or_show(){
+
+			if (hide_password == true){
+
+				document.getElementById('password').type = "text"
+				document.getElementById('re-password').type = "text"
+				document.getElementById('hide-pass').src = "../resources/images/show-password.png"
+				document.getElementById('hide-pass-re').src = "../resources/images/show-password.png"
+				
+				hide_password = false
+
+			}
+
+			else if (hide_password == false){
+				document.getElementById('password').type = "password"
+				document.getElementById('re-password').type = "password"
+				document.getElementById('hide-pass').src = "../resources/images/hide-password.png"
+				document.getElementById('hide-pass-re').src = "../resources/images/hide-password.png"
+				hide_password = true
+
+			}
+
+		}
+
+		function exit_page(){
+			var exit = confirm('Are you sure you want to exit this page?')
+
+			if(exit == true){
+				localStorage.setItem('forgot_code', "")
+				localStorage.setItem('redirect', "../index.html")
+				setTimeout(() => window.parent.location.href = '../resources/loading.html',2000 )
+			}
+
+			else{
+
+			}
+		}
+
+		window.onbeforeunload = function() {
+			localStorage.setItem('forgot_code', "")
+		};
+
+		var is_logged_in = localStorage.getItem('loggedin')
+
+		if (is_logged_in == 'true'){
+			window.parent.location.href = '../homepage.html'
+		}
+
+
+	</script>	
+
+</head>
+<body>
+	<div class="logo-back" onclick="exit_page()">
+		<img src="../resources/images/icon/logo.png" width="85%" class="img-back">
+	</div>
+	<div id="sigin-central" style="overflow: hidden; height:65%;left: 50%;top: 50%;transform: translate(-50%, -50%);">
+		<br>
+		<form class="white-background" id="reset_form">
+			<h2 class="white-background" id="login-title" style="font-size:2em;">Trouble Logging In?</h2><br><br>
+			
+			<div class="input-form white-background">
+				<div class="error-msg-login white-background" id="error-box" style="top:0%;font-size:0.8em; width: 300%;"></div><br>
+				<input type="text" id="guard-code" placeholder="Qorona Guard code" class="login-input">
+				
+				<br><br>
+				<input type="password" id="password" placeholder="Password" class="login-input white-background"  ><br>
+				<img src="../resources/images/hide-password.png" width="20px" style="background-color: transparent;" onclick="hide_Or_show()" id="hide-pass" class="hide-password-signin"><br>
+				<input type="password" id="re-password" placeholder="Confirm Password" class="login-input white-background"><br>
+				<img src="../resources/images/hide-password.png" width="20px" style="background-color: transparent;" onclick="hide_Or_show()" id="hide-pass-re" class="hide-password-signin"><br>
+				
+				<br><br>
+				<div class="white-background">
+					<button type="button" class="submit-button" onclick="reset_password()">Reset</button>
+				</div>
+
+
+			</div>
+			 
+
+		</form>
+	</div>
+	</div>
+</body>
+</html>
