@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- login page for index iframe -->
+<html>
+<head>
+	<title>Login In</title>
+	<meta charset="UTF-8">
+	<meta name= "author" acontent="Qorona Limited">
+	<meta name="description" content="...">
+	<link rel="stylesheet" type="text/css" href="../../resources/stylesheets/main.css">
+	<link rel="icon" type="image/gif/png" href="../../resources/images/icon/logo.png">
+	
+	
+	<script src="../../resources/scripts/login.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../resources/stylesheets/login.css">
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+	<script type="text/javascript">
+		hide_password = true;
+
+		function hide_Or_show(){
+
+			if (hide_password == true){
+
+				document.getElementById('password').type = "text"
+				document.getElementById('hide-pass').src = "../../resources/images/show-password.png"
+				hide_password = false
+
+			}
+
+			else if (hide_password == false){
+				document.getElementById('password').type = "password"
+				document.getElementById('hide-pass').src = "../../resources/images/hide-password.png"
+				hide_password = true
+
+			}
+
+		}
+	</script>
+</head>
+<body>
+
+	<div id="sigin-central" style="left:35%; top: -1%; width:35%;">  <!-- left:-10%; top: -28%; width:35%; -->
+		<br>
+		<form class="white-background">
+			
+			
+			<div class="input-form white-background">
+				<h2 class="white-background" id="login-title">Login</h2>
+				<div class="error-msg-login white-background" id="error-box" style="top:24%;font-size:0.7em; width: 300%;"></div><br>
+				<input type="text" id="username" placeholder="Username or QID" class="login-input" style="width:100%">
+				<br><br>
+				<input type="password" id="password" placeholder="Password" class="login-input"  style="width:200px">
+				<span class="hide-password"><img src="../../resources/images/hide-password.png" width="20px" style="background-color: transparent;" onclick="hide_Or_show()" id="hide-pass"></span><br><br>
+				<div class="white-background">
+					<button type="button" class="submit-button" onclick="validation_login('index')">Submit</button>
+				</div><br>
+
+				<p class="white-background" id="forgot-password" onclick="forgot_password('index')">Forgot password?</p>
+
+			
+
+				<br><br><br><br>
+				
+				<div class="white-background" id="forgot-password-box" style="top:78%;"></div>
+				<hr><br>
+				<span class="white-background">
+					Don't have an account? <br><br> <input type="button" id="register" value="Sign Up" onclick="window.location.href='signin.html'">
+				</span>
+			</div>
+			 
+
+		</form>
+	</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<!-- signup page for index iframe -->
+<head>
+	<title>Registration</title>
+	<meta charset="UTF-8">
+	<meta name= "author" acontent="Qorona Limited">
+	<meta name="description" content="...">
+	<link rel="stylesheet" type="text/css" href="../../resources/stylesheets/main.css">
+	<link rel="icon" type="image/gif/png" href="../../resources/images/icon/logo.png">
+	<script src="../../resources/scripts/login.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../resources/stylesheets/login.css">
+
+	<script type="text/javascript">
+		hide_password = true;
+
+		function hide_Or_show(){
+
+			if (hide_password == true){
+
+				document.getElementById('password').type = "text"
+				document.getElementById('re-password').type = "text"
+				document.getElementById('hide-pass').src = "../../resources/images/show-password.png"
+				document.getElementById('hide-pass-re').src = "../../resources/images/show-password.png"
+				
+				hide_password = false
+
+			}
+
+			else if (hide_password == false){
+				document.getElementById('password').type = "password"
+				document.getElementById('re-password').type = "password"
+				document.getElementById('hide-pass').src = "../../resources/images/hide-password.png"
+				document.getElementById('hide-pass-re').src = "../../resources/images/hide-password.png"
+				hide_password = true
+
+			}
+
+		}
+	</script>
+	
+</head>
+<body>
+
+
+	<div id="sigin-central" style="left:25%; top: 12%; width:55%;"> <!-- left:-10%; top: 3%; width:35%; -->
+		<form class="white-background" id="register-form">
+			<h2 class="white-background sign-up-title-input" id="login-title" >Sign Up</h2>
+			<div class="error-msg-login white-background" id="error-box" style="top:20%;width:200%;font-size: 0.7em;"></div><br>
+			<div class="sign-up-title-input white-background">
+			<input type="text" id="qid" placeholder="Qatar ID" class="login-input white-background ">
+			<br><br>
+			<input type="text" id="phone-number" placeholder="Phone Number" class="login-input white-background" ><br><br>
+			<input type="text" id="email" placeholder="Email Address" class="login-input white-background" ><br><br>
+			<input type="password" id="password" placeholder="Password" class="login-input white-background"  ><br>
+			<img src="../../resources/images/hide-password.png" width="20px" style="background-color: transparent;" onclick="hide_Or_show()" id="hide-pass" class="hide-password-signin"><br>
+			<input type="password" id="re-password" placeholder="Confirm Password" class="login-input white-background"><br>
+			<img src="../../resources/images/hide-password.png" width="20px" style="background-color: transparent;" onclick="hide_Or_show()" id="hide-pass-re" class="hide-password-signin"><br>
+			<br>
+			<div class="error-msg-login white-background" id="password-error-box" style="top:65%;font-size: 0.7em;width: 150%;"></div><br>
+			<div class="white-background">
+				<button type="button" class="submit-button" onclick="validation_signin('index')">Register</button>
+			</div>
+
+			<!-- <a href="" class="white-background" id="forgot-password">Forgot password?</a> -->
+
+		
+			<br>
+			<hr><br>
+			<span class="white-background">
+				Have an account? <input type="button" id="register" value="Login Here" onclick="window.location.href='login.html'">
+			</span>
+			</div>
+
+		</form>		
+	</div>
+
+</body>
+</html>
