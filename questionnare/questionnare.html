@@ -1,0 +1,350 @@
+<!-- Qorona INDEX MAIN PAGE -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Qorona - Questionnaire</title>
+    <meta charset="UTF-8">
+    <link href="../resources/stylesheets/main.css" rel="stylesheet" type="text/css">
+    <script src="../resources/scripts/cc.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/stylesheets/control-center.css">
+	<link rel="icon" type="image/gif/png" href="../resources/images/icon/logo.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="questionnare.css">
+    <meta name="author" acontent="Qorona Limited">
+	<meta name="description" content="prevent COVID-19, population density predictor, COVID questionnaire, artificial intelligence">
+    <script src="ques-logic.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+            background-color: #A80C3B;/*rgb(38, 107, 107);*/
+        }
+    </style>
+
+    <script type="text/javascript">
+    	var logged_in = localStorage.getItem('loggedin')
+
+
+
+    	if (logged_in != 'true'){
+    		localStorage.setItem('redirect_time', 30)
+			localStorage.setItem('redirect', '../login-html/login.html')
+    		alert('Questionnaire can only be accessed by logging in.')
+    		setTimeout(() => {window.parent.location.href= '../resources/loading.html', 2000
+    		})
+    	}
+    </script>
+    <script>
+		function login(){
+			localStorage.setItem('redirect_time', 1387)
+			localStorage.setItem('redirect', '../login-html/login.html')
+			setTimeout(() => window.parent.location.href = '../resources/loading.html',2000 )
+			}
+		function logout(){
+			localStorage.setItem('loggedin', false)
+			localStorage.setItem('redirect_time', 2790)
+			localStorage.setItem('redirect', '../index.html')
+			setTimeout(() => window.parent.location.href = '../resources/loading.html',2000 )
+		}
+	</script>
+
+</head>
+
+<body>
+
+    <div id="control-center" onclick="animateControlCenter();" style="transform: rotate(90deg);">
+        <div class="control-center-line"></div><br>
+        <div class="control-center-line" style="top:-5px;"></div><br>
+        <div class="control-center-line" style="top:-10px;"></div><br>
+    </div>
+
+
+    <div id="control-center-div">
+        <br><br><br>
+        <div onclick="redirect_index('profile')"><a href="#"
+            class="control-center-link border-ccl"><span id="indexOrProfile" >Index</span></a></div>
+
+        <div onclick="redirect_index('map')"><a href="#" class="control-center-link border-ccl"  ><span>
+                    Stats map
+                </span></a></div>
+        <div onclick="redirect_index('covid')"><a href="#" class="control-center-link border-ccl"  ><span>COVID Info</span></a></div>
+        <div  onclick="redirect_index('faq')"><a href="#" class="control-center-link border-ccl" ><span>FAQ</span></a>
+        </div>
+
+        <br><br>
+        <br><br><br>
+        <div id="bottom-cc">
+            <a href="#" style="padding-left: 7%;">
+                <button type="button" id="login-button" class="login-or-logout" onclick="login()">Login</button>
+            </a>
+            <a href="#" style="margin-left: 1px;">
+                <button type="button" id="logout-button" class="login-or-logout" onclick="logout()">Logout</button>
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+			var logged_in = localStorage.getItem('loggedin')
+
+			if(logged_in == 'true'){
+				document.getElementById('indexOrProfile').innerHTML = 'Profile'
+
+			}
+	
+			function redirect_index(src_page){
+				// checks if user logged in if yes shows profile if not goes to index
+				if (src_page == 'profile'){
+					if (localStorage.getItem('loggedin') != 'true'){
+
+						setTimeout(() => {window.parent.location.href = "../index.html"}, 500)
+						
+					}
+
+					else{
+						window.parent.location.href = "../homepage.html"
+					
+						
+					}
+					
+					return
+				}
+
+				else if (src_page == 'faq'){
+					localStorage.setItem('redirect_time', 10)
+					localStorage.setItem('redirect', '../faq.html')
+				}
+				else if (src_page == 'covid'){
+					localStorage.setItem('redirect_time', 542)
+					localStorage.setItem('redirect', '../covid-info/covid-info.html')
+				}
+				else if (src_page == 'map'){
+					localStorage.setItem('redirect_time', 878)
+					localStorage.setItem('redirect', '../stats-map/map.html')
+				}
+
+				window.parent.location.href= '../resources/loading.html'
+
+			}
+		</script>
+
+    <div id="main-container">
+        <h1 id="intro-question">Ready to start the COVID-19 Questionnaire?</h1>
+        <button onclick="onYesClick()" class="yes-no-button yesbtn">Yes</button>
+        <button onclick="onNoClick()" class="yes-no-button nobtn">No</button>
+
+    </div>
+    <div class="progress-bar"></div>
+    <div class="greenblock" id="gb1"></div>
+    <div class="greenblock" id="gb2"></div>
+    <div class="greenblock" id="gb3"></div>
+    <div class="greenblock" id="gb4"></div>
+    <div class="greenblock" id="gb5"></div>
+
+    <div class="question" id="question1">
+        <hr>
+
+        <div class="inner-question">
+            Let's start with a couple of basic questions.<br> <br>Please enter your age, weight and height.
+        </div>
+        <div class="input-forms">
+            <form action="">
+                <div>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age">
+                </div>
+                <div>
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" name="weight">
+                </div>
+                <div>
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" name="height">
+                </div>
+                
+            </form>
+            <!-- <button id="next" onclick="" class="arrow-right">Next</button> -->
+            <button class="arrow-right"
+                onclick="displayNewQuestion(String(this.parentElement.parentElement.id))"></button>
+
+
+
+        </div>
+
+    </div>
+    <div class="question" id="question2">
+        <hr>
+
+        <div class="inner-question" style="font-size: larger;">
+            Have you come into close contact (within 6 feet) with someone who has a laboratory
+            confirmed COVID – 19 diagnosis in the past 14 days?
+        </div>
+        <div class="input-forms">
+            <form action="">
+                <div>
+                    <label for="YesButton">Yes</label>
+                    <input type="radio" id="YesButton" name="c19-interaction" value="yes">
+                </div>
+                <div>
+                    <label for="NoButton">No</label>
+                    <input type="radio" id="NoButton" name="c19-interaction" value="no">
+                </div>
+                <div>
+                    <label for="NotSureButton">Not sure</label>
+                    <input id="NotSureButton" type="radio" name="c19-interaction" value="notsure">
+                </div>
+            </form>
+            <!-- <button id="next" onclick="" class="arrow-right">Next</button> -->
+            <button class="arrow-right"
+                onclick="displayNewQuestion(String(this.parentElement.parentElement.id))"></button>
+            <button class="arrow-left"
+                onclick="displayPreviousQuestion(String(this.parentElement.parentElement.id))"></button>
+
+
+        </div>
+    </div>
+    <div class="question" id="question3">
+        <hr>
+        <div class="inner-question">
+            Are you experiencing any of the following?
+            (Select all that apply)
+        </div>
+        <div class="input-forms">
+            <table>
+                <tr>
+                    <td>
+                        <label for="">Fever or chills</label><br><br>
+                        <input type="checkbox" value="fever-chills"></td>
+                    <td>
+                        <label for="">Cough</label><br><br>
+                        <input type="checkbox" value="cough"></td>
+                    <td>
+                        <label for="">Shortness of breath</label><br><br>
+                        <input type="checkbox" value="breath-short"></td>
+                    <td>
+                        <label for="">Breathing Difficulties</label><br><br>
+                        <input type="checkbox" value="breathing-difficulty">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Tiredness</label><br><br>
+                        <input type="checkbox" value="tiredness">
+                    </td>
+                    <td>
+                        <label for="">Muscle aches</label><br><br>
+                        <input type="checkbox" value="aches">
+                    </td>
+                    <td>
+                        <label for="">Headache</label><br><br>
+                        <input type="checkbox" value="headaches">
+                    </td>
+                    <td>
+                        <label for="">New loss of taste or smell</label><br><br>
+                        <input type="checkbox" value="tasteSmell">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Sore throat</label><br><br>
+                        <input type="checkbox" value="throat">
+
+                    </td>
+                    <td>
+                        <label for="">Chest pain</label><br><br><br>
+                        <input type="checkbox" value="chest-pai">
+                    </td>
+                </tr>
+            </table>
+            <button class="arrow-right" 
+            onclick="displayNewQuestion(String(this.parentElement.parentElement.id))"></button>
+        <button class="arrow-left" style="left: 45%;"
+            onclick="displayPreviousQuestion(String(this.parentElement.parentElement.id))"></button>
+
+
+        </div>
+
+
+    </div>
+    <div class="question" id="question4">
+        <div class="inner-question">
+            In the past 2 weeks have you had a new or worsening runny nose, nasal congestion, headache, or nausea/vomiting/diarrhea that is not related to a chronic condition or seasonal allergies?
+        </div>
+        <div class="input-forms">
+            <form action="">
+                <div>
+                    <label for="YesButton2">Yes</label>
+                    <input type="radio" id="YesButton2" name="c19-interaction" value="yes">
+                </div>
+                <div>
+                    <label for="NoButton2">No</label>
+                    <input type="radio" id="NoButton2" name="c19-interaction" value="no">
+                </div>
+ 
+            </form>
+            <!-- <button id="next" onclick="" class="arrow-right">Next</button> -->
+            <button class="arrow-right"
+                onclick="displayNewQuestion(String(this.parentElement.parentElement.id))"></button>
+            <button class="arrow-left"
+                onclick="displayPreviousQuestion(String(this.parentElement.parentElement.id))"></button>
+
+
+        </div>
+    </div>
+    <div class="question" id="question5">
+        <hr>
+        <div class="inner-question">
+            Do you have any sicknesses that run in your family? 
+            Type them in the box below. If you don't have any, please skip.
+        </div>
+        <br>
+        <br>
+        <br>
+        <h3 style="padding-left: 10%;">Type in here: </h3>
+        <span style="padding-left: 35%;">
+            <textarea style="margin-top: 4%; background-color: indianred; color: maroon;" name="sicknesses" id="sicknesses" cols="30" rows="10"></textarea></span>
+            <div>
+                <button class="arrow-right" style="top: 85%; left: 94%"
+                onclick="displayNewQuestion(String(this.parentElement.parentElement.id)); getFormValues()"></button>
+            </div>
+
+    </div>
+
+
+    <div class="question" id="question6">
+        <div id="results-div">
+            <h2 id="results" style="position: absolute; top: 40%; left:35%;">Calculating results
+                <span id="dot1">.</span>
+                <span id="dot2">.</span>
+                <span id="dot3">.</span>
+            </h2>
+        </div>
+        <div id="probability-result">
+            After performing some calculations, there is a <span id="probability"></span> chance you have COVID-19.
+            <span id="request-a-test">Would you like to request a test?
+                <div>
+                    <button onclick="window.location.href='../homepage.html'">Request a test!</button>
+                    <button onclick="window.location.href='../homepage.html'" >No, thank you.</button>
+                </div>
+
+
+            </span>
+            <span id="request-a-test1">
+                Our results indicate that you are not likely to have the virus. Stay safe!
+            </span>
+        </div>
+        
+    </div>
+    
+
+
+
+
+
+
+</body>
+
+</html>

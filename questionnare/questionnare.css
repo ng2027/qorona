@@ -1,0 +1,356 @@
+h1 {
+    color: #C01B3D;
+    background-color: #EB9C8C;
+    border-radius: 35px;
+    padding: 1%;
+    position: relative;
+    left: 25%;
+    top: 30%;
+    display: inline;
+}
+
+
+#main-container {
+    position: absolute;
+    width: 99%;
+    height: 65%;
+}
+
+
+.yes-no-button {
+    position: absolute;
+    width: 10%;
+    height: 15%;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.304);
+    border: none;
+    font-size: 20px;
+}
+
+.yesbtn {
+    left: 36%;
+    top: 60%;
+    color: lawngreen;/*rgb(153, 153, 1);*/
+    text-shadow: 1px 1px 3px black;
+
+
+}
+
+.nobtn {
+    left: 52%;
+    top: 60%;
+    color: red;/*rgb(155, 41, 41);*/
+     text-shadow: 1px 1px 3px black;
+}
+
+.yes-no-button:hover {
+    background-color: lightcoral;
+}
+.progress-bar {
+    width: 105%;
+    height: 9%;
+    position: absolute;
+    top: 91%;
+    left: -1%;
+    background-color:#ffabab;
+}
+
+.question {
+    position: absolute;
+/*    color: indianred;*/
+    width: 50%;
+    height: 60%;
+    left: 23%;
+    top: -70%;
+    border-radius: 16px;
+    background-color: darksalmon;
+    overflow-y: scroll;
+}
+
+.question::-webkit-scrollbar {
+    display: none;
+}
+
+
+.slide-down-class {
+    animation-name: slide-down;
+    animation-duration: 0.35s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+@keyframes slide-down {
+    0% {top: -70%}
+    100% {top: 18%}
+}
+
+.slide-right-class {
+    animation-name: slide-right;
+    animation-duration: 0.35s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes slide-right {
+    from {left: -50%}
+    to {left: 23%} 
+
+}
+
+
+.slide-up-class {
+    animation-name: slide-up;
+    animation-duration: 0.35s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+@keyframes slide-up {
+    0% {top: 18%}
+    100% {top: -70%}
+}
+
+
+hr {
+    position: relative;
+    top: 30%;
+    height: 1px;
+    background-color: maroon;
+    border: none;
+}
+
+.inner-question {
+    font-size: 1.5em;
+    padding: 2% 15%;
+    color:#A80C3B;/*rgb(38, 107, 107);*/
+    margin-top: 20px;
+
+}
+
+.input-forms {
+    position: relative;
+    top: 15%;
+    left: 30%;
+
+}
+
+div > input {
+    margin: 3%;
+    position: absolute;
+    border-radius: 5px;
+    border-style: none;
+    background-color: rgb(197, 255, 255);
+}
+
+#age, #YesButton {
+    left: 20%;
+    top: -10%;
+}
+#weight, #NoButton {
+    left: 20%;
+    top: 33%; 
+    
+}
+#height, #NotSureButton {
+    left: 20%;
+    top: 77%; 
+}
+
+label {
+    font-size: 20px;
+}
+
+form div {
+    margin-bottom: 8%;
+}
+
+
+/* .arrow-right {
+    position: absolute;
+    left: 62%;
+    top: 120%;
+} */
+
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    position: absolute;
+}
+
+
+.arrow-left, .arrow-right {
+    width: 0; 
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	cursor: grab;
+	outline: inherit;
+    height: 0; 
+    position: absolute;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent; 
+
+  }
+
+.arrow-right:hover{
+    border-left: 30px solid maroon; 
+}
+
+.arrow-left:hover{
+    border-right: 30px solid maroon; 
+}
+.arrow-left {
+    top: 110%;
+    left: -28%;
+    border-right: 30px solid darkcyan; 
+
+}
+
+.arrow-right {
+    top: 110%;
+    border-left: 30px solid darkcyan; 
+
+    left: 64%;
+}
+
+
+.slide-left-class {
+    animation-name: slide-left;
+    animation-duration: 0.35s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes slide-left {
+    from {left: 23%} 
+    to {left: -50%}
+}
+
+
+input[type="radio"] {
+    height: 15%;
+    width: 15%;
+}
+
+table input[type="checkbox"] {
+    margin-bottom: -5%;
+}
+
+table {
+    position: absolute;
+    left: -28%;
+    top: -20%;
+}
+table, td{
+        border: 1px solid maroon;
+        padding: 1%;
+        margin: 0% 0% 0% -1%;;
+        border-collapse: collapse;
+    }
+
+
+#question3 .arrow-right, #question3 .arrow-left{
+    margin-top: 32%;
+}
+
+
+
+#YesButton2 {
+    position: absolute;
+    margin: 0;
+    top: -5%;
+    left: 24.75%;
+    height: 40%;
+    width: 40%;
+
+}
+#NoButton2 {
+    height: 40%;
+    width: 40%;
+    margin: 0;
+    position: absolute;
+    left: 25%;
+    top: 70%;
+}
+
+
+#dot1, #dot2, #dot3, #probability-result, #request-a-test, #request-a-test1 {
+    display: none;
+}
+
+
+#probability-result {
+    top: 30%;
+    left: 7%;
+    position: absolute;
+    font-size: 20px;
+}
+
+#probability {
+    color: green;
+}
+
+
+span > div > button {
+    width: 20%;
+    font-size: 15px;
+    padding: 2.5%;
+    margin-top: 5%;
+    display: inline;
+    border:none;
+    background-color: #8da2b3;
+    font-weight: bold;
+    margin-left: 35%;
+}
+
+
+.greenblock {
+    position: absolute;
+    width: 20%;
+    height: 9%;
+    background-color: darkcyan;
+    top: 100%;
+    left: -1%;
+}
+
+
+#gb1 {
+    width: 21%;
+}
+#gb2 {
+    left: 20%;
+}
+#gb3 {
+    left: 40%;
+}
+#gb4 {
+    left: 60%;
+}
+#gb5 {
+    left: 80%;
+}
+
+.slide-gb-up {
+    animation-name: slide-gb-up;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-gb-up {
+    from {top: 100%}
+    to {top: 91%}
+}
+
+.slide-gb-down {
+    animation-name: slide-gb-down ;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-gb-down {
+    from {top: 91%}
+    to {top: 100%}
+}
