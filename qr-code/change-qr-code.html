@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QR Code Changer</title>
+	<link rel="icon" type="image/gif/png" href="../resources/images/icon/logo.png">
+	<style type="text/css">
+		body{
+			background-color: cornflowerblue;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+
+		div{
+			display: inline-block;
+			width:30%;
+			height: 150px;
+			margin: 40px;
+			border:5px solid black;
+			border-radius: 30px;
+		}
+
+		span{
+			position: relative;
+			top: 50%;
+
+		}
+	</style>
+</head>
+<body>
+
+	<h1>QR-Code changer</h1><br><br>
+
+	<div id="healthy" style="background-color: green" onclick="change_color('healthy')"><span>Healthy</span></div>
+	<div id="confirmed" style="background-color: red;" onclick="change_color('confirmed')"><span>Confirmed</span></div><br><br>
+	<div id="suspected" style="background-color: grey;" onclick="change_color('suspected')"><span>Suspected</span></div>
+	<div id="quarantined" style="background-color: yellow;" onclick="change_color('quarantined')"><span>Quarantined</span></div>
+
+	<script type="text/javascript">
+		function change_color(status){
+				if (status == 'healthy'){
+					localStorage.setItem('status', 'healthy')
+				}
+				else if (status == 'confirmed'){
+					localStorage.setItem('status', 'confirmed')
+				}
+				else if (status == 'suspected'){
+					localStorage.setItem('status', 'suspected')
+				}
+				else if (status == 'quarantined'){
+					localStorage.setItem('status', 'quarantined')
+				}
+				else{
+					localStorage.setItem('status', 'unknown')
+				}
+
+				alert('Changed')
+		}
+	</script>
+
+</body>
+</html>
