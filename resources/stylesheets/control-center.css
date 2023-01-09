@@ -1,0 +1,224 @@
+
+
+body{
+	font-family: 'Ubuntu', sans-serif;
+}
+.control-center-line {
+	width: 30px;
+	height:2px;
+	border-radius:10px;
+	background-color:white;
+	display: inline-block;
+	padding: 2px;
+	position: relative;
+	background-color:  #cf7500;
+
+}
+
+#control-center{
+	display: inline-block;
+	height: 60px;
+    border-radius: 5px; 
+}
+
+
+/* .animatable-class-cc {
+    animation-name: rotate90;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+}
+
+
+
+@keyframes rotate90 {
+	0% {
+		padding: 2px;
+	}
+	20% {transform:rotate(90deg);}
+	100% {
+		/* padding: 40px; */
+		/* transform:rotate(90deg); */
+
+
+
+		/* padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 65px;
+		padding-bottom: 180px;
+		margin-left: -25px; */
+	/* }
+
+} */ 
+
+
+
+#control-center-div {
+	display: block;
+	background-color: white;
+	width: 20%;
+	height: 74.5%;
+	opacity: 100;
+	position: absolute;
+	top: 13%;
+	left: -20%;
+	z-index: 100;
+	border-top-right-radius: 3.5%;
+	border-bottom-right-radius: 3.5%;
+	border:3px solid maroon;
+	border-left: 2px hidden white;
+
+}
+
+.animatable-class-control-center {
+    animation-name: slide-in;
+	animation-fill-mode: forwards;
+	animation-delay: 0.5s;
+    animation-duration: 0.5s;
+}
+
+@keyframes slide-in {
+	100% {left: 0%;}
+}
+
+.deanimate-class-control-center {
+    animation-name: slide-out;
+	animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+}
+
+@keyframes slide-out {
+	100% {left: -20%;}
+}
+
+
+
+
+.control-center-link {
+	text-decoration: none;
+	position: relative;
+	padding-left: 7%;
+	font-size: 1.7em;
+	color:#cf7500;
+	line-height: 320%;
+	margin-left: 7%;
+}
+
+
+.border-ccl {
+	padding: 4%;
+	border-radius: 10px;
+	border-color: darkred;
+	border-style: solid;
+	border-width: 15%;
+	border-top-color: #cf7500;
+	border-bottom-color: #cf7500;
+	background-color: #fff5f5;
+}
+
+#bottom-cc {
+	position: absolute;
+	background-color: rgb(246, 222, 222);
+	width: 100%;
+	height: 18.3%;
+	top: 82%;
+	border-bottom-right-radius: 7%;
+	border-top-color: maroon;
+	border-bottom: 3px solid maroon;
+}
+
+.control-center-link:hover {
+	color: maroon;
+}
+
+.login-or-logout:hover {
+	color: maroon;
+}
+
+
+.login-or-logout {
+	text-decoration: none;
+	position: relative;
+	font-size: 20px;
+	color:#cf7500;
+	border-radius: 10px;
+	border-color: darkred;
+	border-style: solid;
+	border-width: 4px;
+	top: 27%;
+	border-top-color: #cf7500;
+	background-color: #fff5f5;
+	border-bottom-color: #cf7500;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 3% 9%;
+
+
+}  
+
+#logout-button {
+	text-decoration: none;
+}
+#login-button {
+	text-decoration: none;
+}
+/* 
+.ccl1 {
+	animation-name: ccl1;
+	animation-duration: 0.1s;
+	animation-fill-mode: forwards;
+	animation-delay: 0.2s;
+} */
+
+.ccl2 {
+	animation-name: ccl2;
+	animation-duration: 0.3s;
+	animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+
+.ccl3 {
+	animation-name: ccl3;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+	/* animation-delay: 0.5s; */
+}
+
+@keyframes ccl2 {
+	0% {top: -5px;}
+	100% {top: -125px;}
+}
+
+@keyframes ccl3 {
+	0% {top: -10px;}
+	100% {top: -247px}
+}
+
+.ccl2-deanim {
+	animation-name: ccl2-deanim;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+
+}
+
+.ccl3-deanim {
+	animation-name: ccl3-deanim;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+	animation-delay: 0.5s;
+
+
+}
+
+@keyframes ccl2-deanim {
+	0% {top: -125px;}
+	100% {top: -2px;}
+}
+
+@keyframes ccl3-deanim {
+	0% {top: -247px;}
+	100% {top: 6px;}
+}
+
+.bckgw {
+	background-color: white;
+}

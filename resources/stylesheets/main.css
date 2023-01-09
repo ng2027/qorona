@@ -1,0 +1,228 @@
+/*body {
+	background-image: linear-gradient(to right,white, #800000 );
+	
+}*/
+
+body{
+	overflow-x: hidden;
+	font-family: 'Ubuntu', sans-serif;
+}
+/*.control-center{
+	background-color: #E1C699;
+	display: inline-block;
+	height: 100px;
+
+}
+
+.control-center:active{
+	 background-color: red;
+	 width: 300px;
+}
+*/
+
+.control-center-line{
+	width: 30px;
+	height:2px;
+	border-radius:10px;
+	background-color:white;
+	display: inline-block;
+	margin: 1px;
+	padding: 2px;
+	position:relative;
+}
+
+
+#logo {
+	opacity: 0;
+	animation-name: pop-up-logo;
+	animation-fill-mode: forwards;
+	animation-duration: 3s;
+	display: block;	
+}
+
+
+#logo-div {
+	position: relative;
+	width: 100%;
+	height: 800px;
+	overflow: visible;
+
+
+}
+
+@keyframes pop-up-logo {
+	0% {opacity: 0; width: 100px; height: 100px;}
+	70% {opacity: 1; width: 600px; height: 600px;}
+	71% {opacity: 1; width: 600px; height: 600px; margin-left: 400px; }
+	90% {opacity: 1; width: 600px; height: 600px; margin-left: 0; }
+	100% {opacity: 1; width: 600px; height: 600px; margin-left: 0; }
+
+}
+
+.logo-hide {
+    animation-name: hide-logo;
+	animation-fill-mode: forwards;
+	animation-delay: 0.5s;
+	animation-duration: 0.5s;
+	opacity: 1;
+}
+
+@keyframes hide-logo {
+	0% {opacity: 1;}
+	100% {opacity: 0.3;}
+}
+
+
+
+/* #sloganC {
+color: grey;
+opacity: 100%;
+}
+
+
+
+.outerSlogan {
+position: absolute;
+left: 50%;
+top: 70%;
+opacity: 0%;
+font-size: 180%;
+animation-name: appear-slogan;
+animation-delay: 3s;
+animation-fill-mode: forwards;
+animation-duration: 2s;
+}
+
+@keyframes appear-slogan {
+0% {opacity: 0%;}
+100% {opacity: 100%;}
+}
+
+.slogan {
+color: maroon;
+}
+
+#sloganC:hover{
+animation-name: change-slogan;
+animation-duration: 2s, 2s;
+animation-fill-mode: forwards;
+}
+
+@keyframes change-slogan {
+0% {opacity: 100%;}
+100% {opacity: 0%;}
+}
+
+#small-logo {
+position: absolute;
+opacity: 0%;
+pointer-events: none;
+width: 60%;
+height: 140%;
+left:-94%;
+top: -50%;
+}
+
+
+
+.appear-logo {
+animation-name: appear-logo;
+animation-duration: 0.5s;
+animation-delay: 0.5s;
+animation-fill-mode: forwards;
+}
+
+
+@keyframes appear-logo {
+from {opacity: 0%; left: -94%;}
+to {opacity: 100%; left: -16%}
+} */
+
+
+
+
+
+#LL1 {
+position: absolute;
+left: 110%;
+top: 50%;
+animation-name: move-left1;
+animation-duration: 1.5s;
+animation-delay: 3s;
+animation-fill-mode: forwards;
+}
+#LL2 {
+position: absolute;
+left: 117%;
+top: 50%;
+animation-name: move-left2;
+animation-duration: 1.7s;
+animation-delay: 3s;
+animation-fill-mode: forwards;
+}
+#LL3 {
+position: absolute;
+left: 124%;
+top: 50%;
+animation-name: move-left3;
+animation-duration: 1.9s;
+animation-delay: 3s;
+animation-fill-mode: forwards;
+}
+#LL4 {
+position: absolute;
+left: 131%;
+top: 50%;
+animation-name: move-left4;
+animation-duration: 2.1s;
+animation-delay: 3s;
+animation-fill-mode: forwards;
+}
+#LL5 {
+position: absolute;
+left: 138%;
+top: 51%;
+animation-name: move-left5;
+animation-duration: 2.3s;
+animation-delay: 3s;
+animation-fill-mode: forwards;
+}
+
+div.letter-logo img {
+width: 28%;
+height: 28%;
+}
+
+@keyframes move-left1 {
+from {left: 110%}
+to {left: 30%}
+}
+
+@keyframes move-left2 {
+from {left: 117%}
+to {left: 37%}
+}
+
+@keyframes move-left3 {
+from {left: 124%}
+to {left: 42%}
+}
+
+
+@keyframes move-left4 {
+from {left: 131%}
+to {left: 48%}
+}
+
+@keyframes move-left5 {
+from {left: 138%}
+to {left: 54%}
+}
+
+
+
+
+
+
+
+

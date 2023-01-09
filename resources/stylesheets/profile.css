@@ -1,0 +1,275 @@
+/*css for profile*/
+
+.profile-title{
+	font-size:1.2em;
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	top:50%;
+	transform: translate(-70%,0%);
+	text-shadow:4px 4px 10px black;
+	color: white;
+}
+
+
+#hr{
+	height: 3px;
+	background-color: white;
+	position: relative;
+	bottom: 10px;
+}
+
+
+
+#date{
+	font-size: 1.3em;
+	font-weight: bold;
+	color: white;
+	display: inline-block;
+	position:absolute ;
+	right: 5%;
+	top: 8%;
+	text-shadow: 1px 1px 10px black;
+}
+
+
+#qr-code{
+	width: 35%;
+
+
+}
+
+.td-middle{
+
+	color: white;
+	font-size: 1.3em;
+	font-weight: bold;
+	text-shadow: 2px 2px 10px black;
+	position: relative;
+	left: -25%;
+}
+
+
+.value-table{
+	width: 30%;
+	position: relative;
+	left: -25%;
+	color: white;
+	font-size: 1.1em;
+	
+	text-shadow: 2px 2px 10px black;
+}
+
+
+.prev-visit{
+	width:30%;
+	height:70%;
+	position: absolute;
+	right: 6%;
+	background-color:rgb(255,210,180);
+	overflow: hidden;
+	border-radius: 30px;
+	border:5px solid crimson;
+	overflow-y: scroll;
+}
+.prev-visit::-webkit-scrollbar {
+    display: none;
+}
+
+.prev-visit-h1{
+	color:salmon;
+	text-shadow: 2px 2px 5px lightblue;
+	text-align: center;
+	text-shadow: 
+}
+
+
+.visited_place{
+	background-color: lightblue;
+	width: 70%;
+	height: 15%;
+	border-radius: 25px;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%,0%);
+	overflow: hidden;
+	padding: 4%;
+}
+
+
+.location-title{
+	font-size: 1.2em;
+	font-weight: bold;
+	position: relative;
+	left: 10%;
+	top: 3%;
+	transform: translate(0%,0%);
+
+}
+
+.risk_rate{
+	font-size: 1em;
+	position: relative;
+	left: 10%;
+
+
+}
+
+
+.lower-div{
+	position: absolute;
+	bottom: 2%;
+	width: 55%;
+	height: 35%;
+	background-color: transparent;
+}
+
+
+.covid{
+	width: 50%;
+	height: 30%;
+	background-color:rgb(255,210,180);
+	font-size: 1.5em;
+	font-weight: bolder;
+	position:relative;
+	left: 50%;
+	top:25%;
+	border-radius: 30px;
+	border:5px solid crimson;
+
+
+	
+	transform: translate(-50%,-50%);
+
+}
+
+.covid-text{
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+
+}
+
+
+.covid:hover{
+	background-color: lightgreen;
+	border:5px solid green;
+}
+
+
+.reservation-time{
+	width: 50%;
+	height: 40%;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0%);
+}
+
+.status_txt{
+	position: relative;
+	left: 10%;
+	font-size: 1.2em;
+
+
+}
+
+
+.calculated_price{
+	width: 80%;
+	background-color: lightblue;
+	text-align: center;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-radius: 20px;
+}
+
+
+.price{
+	font-size: 2.6em;
+	color: green;
+}
+
+
+
+
+
+
+.x1{
+	margin: 10px;
+}
+
+
+.info_x{
+	font-size: 0.64em;
+	color: red;
+	overflow-wrap: break-word;
+}
+
+
+.proceed_yes{
+	font-size: 0.7em;
+	background-color: lime;
+	border:2px solid black;
+	width: 40%;
+	font-weight: bold;
+}
+
+
+.proceed_no{
+	font-size: 0.7em;
+	background-color: orangered;
+	border:2px solid black;
+	width: 40%;
+	font-weight: bold;
+}
+
+
+.fail-appoinment{
+	position: relative;
+	left: 43%;
+	top: 80%;
+	transform: translate(-50%, 0%);
+	background-color:lightcoral;
+	border:6px solid red;
+	text-align: center;
+	height: 60%;
+	border-radius: 30px;
+	width: 80%;
+	padding: 10px;
+}
+
+
+.go-back{
+	position:relative;
+	right: 0px;
+	border:2px solid orangered;
+	font-size: 0.8em;
+}
+
+
+.go-back:hover{
+	color: red;
+
+}
+
+
+.exist_appoinment{
+	background-color:lightblue;
+	border-radius: 20px;
+	width: 80%;
+	position: relative;
+	left: 42%;
+	transform: translate(-50%,0%);
+	text-align: center;
+	padding: 10px;
+	padding-top: 5px;
+}
+
+.details-vax{
+	text-align: left;
+	font-size: 0.9em;}
+
+.cancel-vax{
+	padding: 3px;
+}
