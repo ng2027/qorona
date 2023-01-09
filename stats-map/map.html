@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Qorona - Map</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/gif/png" href="../resources/images/icon/logo.png">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com"> 
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+	<meta name= "author" content="Qorona Limited">
+	<meta name="description" content="prevent COVID-19, population density predictor, COVID questionnare, artificial intelligence">	<link rel="stylesheet" href="resources-map/map.css">
+	<link rel="stylesheet" href="../resources/stylesheets/control-center.css">
+	<link rel="stylesheet" href="../resources/stylesheets/main.css">
+	<script src="../resources/scripts/cc.js"></script>
+
+	<style>
+		body{
+			overflow:hidden;
+			background-color: #A80C3B;
+		}
+	</style>
+</head>
+
+<body>
+
+	<img src="resources-map/map.png" id="map">
+	</div>	
+	<div class="stats-info">
+		<h1 style="color: white;">Statistics map</h1>
+		<p>The statistics map is a significant, brand new development which takes the concept of maps and extends their functionality by using artificial intelligence in order to produce a population density map but with a twist - it’s live and it predicts future population densities based on previous data. How? The Qorona project hopes to install small, portable QR code scanners at every major attraction and location in Qatar. Why? On entry and exit, users will be forced to scan their QR code on the scanners, which allows us to track the amount of people at any one place. This provides a major advantage over other competitors (mainly Ehteraz)  - people are able to make more informed decisions by checking the map which highlights highly populated areas in a shade of red, and sparsely populated areas in a shade of green. </p>
+	</div>
+
+	<!-- a 24 by 10 table of div tags is created. 
+	each div has a seperate id which we can access using javascript to determine the color of the div based on population density
+	
+	-->
+	<div class="row1">
+		<div class="coordinate column" id="box-1-1" ></div>
+		<div class="coordinate column" id="box-2-1" ></div>
+		<div class="coordinate column" id="box-3-1" ></div>
+		<div class="coordinate column" id="box-4-1" ></div>
+		<div class="coordinate column" id="box-5-1" ></div>
+		<div class="coordinate" id="box-6-1"></div>
+		<div class="coordinate" id="box-7-1"></div>
+		<div class="coordinate" id="box-8-1"></div>
+		<div class="coordinate" id="box-9-1"></div>
+		<div class="coordinate" id="box-10-1"></div>
+		<div class="coordinate" id="box-11-1"></div>
+		<div class="coordinate" id="box-12-1"></div>
+	</div>
+	<div class="row2">
+		<div class="coordinate" id="box-13-1"></div>
+		<div class="coordinate" id="box-14-1"></div>
+		<div class="coordinate" id="box-15-1"></div>
+		<div class="coordinate" id="box-16-1"></div>
+		<div class="coordinate" id="box-17-1"></div>
+		<div class="coordinate" id="box-18-1"></div>
+		<div class="coordinate column" id="box-19-1"></div>
+		<div class="coordinate column" id="box-20-1"></div>
+		<div class="coordinate column" id="box-21-1"></div>
+		<div class="coordinate column" id="box-22-1"></div>
+		<div class="coordinate column" id="box-23-1"></div>
+		<div class="coordinate column" id="box-24-1"></div>
+	</div>
+	<div class="row3">
+		<div class="coordinate column" id="box-1-2" ></div>
+		<div class="coordinate column" id="box-2-2" ></div>
+		<div class="coordinate column" id="box-3-2" ></div>
+		<div class="coordinate column" id="box-4-2" ></div>
+		<div class="coordinate column" id="box-5-2" ></div>
+		<div class="coordinate" id="box-6-2"></div>
+		<div class="coordinate" id="box-7-2"></div>
+		<div class="coordinate" id="box-8-2"></div>
+		<div class="coordinate" id="box-9-2"></div>
+		<div class="coordinate" id="box-10-2"></div>
+		<div class="coordinate" id="box-11-2"></div>
+		<div class="coordinate" id="box-12-2"></div>
+	</div>
+	<div class="row4">
+		<div class="coordinate " id="box-13-2"></div>
+		<div class="coordinate " id="box-14-2"></div>
+		<div class="coordinate " id="box-15-2"></div>
+		<div class="coordinate " id="box-16-2"></div>
+		<div class="coordinate " id="box-17-2"></div>
+		<div class="coordinate " id="box-18-2"></div>
+		<div class="coordinate column" id="box-19-2"></div>
+		<div class="coordinate column" id="box-20-2"></div>
+		<div class="coordinate column" id="box-21-2"></div>
+		<div class="coordinate column" id="box-22-2"></div>
+		<div class="coordinate column" id="box-23-2"></div>
+		<div class="coordinate column" id="box-24-2"></div>
+	</div>
+	<div class="row5">
+		<div class="coordinate column" id="box-1-3" ></div>
+		<div class="coordinate column" id="box-2-3" ></div>
+		<div class="coordinate column" id="box-3-3" ></div>
+		<div class="coordinate column" id="box-4-3" ></div>
+		<div class="coordinate column" id="box-5-3" ></div>
+		<div class="coordinate" id="box-6-3"></div>
+		<div class="coordinate" id="box-7-3"></div>
+		<div class="coordinate" id="box-8-3"></div>
+		<div class="coordinate" id="box-9-3"></div>
+		<div class="coordinate" id="box-10-3"></div>
+		<div class="coordinate" id="box-11-3"></div>
+		<div class="coordinate" id="box-12-3"></div>
+	</div>
+	<div class="row6">
+		<div class="coordinate" id="box-13-3"></div>
+		<div class="coordinate" id="box-14-3"></div>
+		<div class="coordinate" id="box-15-3"></div>
+		<div class="coordinate" id="box-16-3"></div>
+		<div class="coordinate" id="box-17-3"></div>
+		<div class="coordinate" id="box-18-3"></div>
+		<div class="coordinate column" id="box-19-3"></div>
+		<div class="coordinate column" id="box-20-3"></div>
+		<div class="coordinate column" id="box-21-3"></div>
+		<div class="coordinate column" id="box-22-3"></div>
+		<div class="coordinate column" id="box-23-3"></div>
+		<div class="coordinate column" id="box-24-3"></div>
+	</div>
+	<div class="row7">
+		<div class="coordinate column" id="box-1-4" ></div>
+		<div class="coordinate column" id="box-2-4" ></div>
+		<div class="coordinate column" id="box-3-4" ></div>
+		<div class="coordinate column" id="box-4-4" ></div>
+		<div class="coordinate column" id="box-5-4" ></div>
+		<div class="coordinate" id="box-6-4"></div>
+		<div class="coordinate" id="box-7-4"></div>
+		<div class="coordinate" id="box-8-4"></div>
+		<div class="coordinate" id="box-9-4"></div>
+		<div class="coordinate" id="box-10-4"></div>
+		<div class="coordinate" id="box-11-4"></div>
+		<div class="coordinate" id="box-12-4"></div>
+	</div>
+	<div class="row8"> 
+		<div class="coordinate" id="box-13-4"></div>
+		<div class="coordinate" id="box-14-4"></div>
+		<div class="coordinate" id="box-15-4"></div>
+		<div class="coordinate" id="box-16-4"></div>
+		<div class="coordinate" id="box-17-4"></div>
+		<div class="coordinate" id="box-18-4"></div>
+		<div class="coordinate column" id="box-19-4"></div>
+		<div class="coordinate column" id="box-20-4"></div>
+		<div class="coordinate column" id="box-21-4"></div>
+		<div class="coordinate column" id="box-22-4"></div>
+		<div class="coordinate column" id="box-23-4"></div>
+		<div class="coordinate column" id="box-24-4"></div>
+	</div>
+	<div class="row9">
+		<div class="coordinate column" id="box-1-5" ></div>
+		<div class="coordinate column" id="box-2-5" ></div>
+		<div class="coordinate column" id="box-3-5" ></div>
+		<div class="coordinate column" id="box-4-5" ></div>
+		<div class="coordinate column" id="box-5-5" ></div>
+		<div class="coordinate" id="box-6-5"></div>
+		<div class="coordinate" id="box-7-5"></div>
+		<div class="coordinate" id="box-8-5"></div>
+		<div class="coordinate" id="box-9-5"></div>
+		<div class="coordinate" id="box-10-5"></div>
+		<div class="coordinate" id="box-11-5"></div>
+		<div class="coordinate" id="box-12-5"></div>
+	</div>
+	<div class="row10">
+		<div class="coordinate" id="box-13-5"></div>
+		<div class="coordinate" id="box-14-5"></div>
+		<div class="coordinate" id="box-15-5"></div>
+		<div class="coordinate" id="box-16-5"></div>
+		<div class="coordinate" id="box-17-5"></div>
+		<div class="coordinate" id="box-18-5"></div>
+		<div class="coordinate column" id="box-19-5"></div>
+		<div class="coordinate column" id="box-20-5"></div>
+		<div class="coordinate column" id="box-21-5"></div>
+		<div class="coordinate column" id="box-22-5"></div>
+		<div class="coordinate column" id="box-23-5"></div>
+		<div class="coordinate column" id="box-24-5"></div>
+	</div>
+	<div class="row11">
+		<div class="coordinate column" id="box-1-6" ></div>
+		<div class="coordinate column" id="box-2-6" ></div>
+		<div class="coordinate column" id="box-3-6" ></div>
+		<div class="coordinate column" id="box-4-6" ></div>
+		<div class="coordinate column" id="box-5-6" ></div>
+		<div class="coordinate" id="box-6-6"></div>
+		<div class="coordinate" id="box-7-6"></div>
+		<div class="coordinate" id="box-8-6"></div>
+		<div class="coordinate" id="box-9-6"></div>
+		<div class="coordinate" id="box-10-6"></div>
+		<div class="coordinate" id="box-11-6"></div>
+		<div class="coordinate" id="box-12-6"></div>
+	</div>
+	<div class="row12">
+		<div class="coordinate" id="box-13-6"></div>
+		<div class="coordinate" id="box-14-6"></div>
+		<div class="coordinate" id="box-15-6"></div>
+		<div class="coordinate" id="box-16-6"></div>
+		<div class="coordinate" id="box-17-6"></div>
+		<div class="coordinate" id="box-18-6"></div>
+		<div class="coordinate column" id="box-19-6"></div>
+		<div class="coordinate column" id="box-20-6"></div>
+		<div class="coordinate column" id="box-21-6"></div>
+		<div class="coordinate column" id="box-22-6"></div>
+		<div class="coordinate column" id="box-23-6"></div>
+		<div class="coordinate column" id="box-24-6"></div>
+	</div>
+	<div class="row13">
+		<div class="coordinate column" id="box-1-7" ></div>
+		<div class="coordinate column" id="box-2-7" ></div>
+		<div class="coordinate column" id="box-3-7" ></div>
+		<div class="coordinate column" id="box-4-7" ></div>
+		<div class="coordinate column" id="box-5-7" ></div>
+		<div class="coordinate" id="box-6-7"></div>
+		<div class="coordinate" id="box-7-7"></div>
+		<div class="coordinate" id="box-8-7"></div>
+		<div class="coordinate" id="box-9-7"></div>
+		<div class="coordinate" id="box-10-7"></div>
+		<div class="coordinate" id="box-11-7"></div>
+		<div class="coordinate" id="box-12-7"></div>
+	</div>
+	<div class="row14">
+		<div class="coordinate" id="box-13-7"></div>
+		<div class="coordinate" id="box-14-7"></div>
+		<div class="coordinate" id="box-15-7"></div>
+		<div class="coordinate" id="box-16-7"></div>
+		<div class="coordinate" id="box-17-7"></div>
+		<div class="coordinate" id="box-18-7"></div>
+		<div class="coordinate column" id="box-19-7"></div>
+		<div class="coordinate column" id="box-20-7"></div>
+		<div class="coordinate column" id="box-21-7"></div>
+		<div class="coordinate column" id="box-22-7"></div>
+		<div class="coordinate column" id="box-23-7"></div>
+		<div class="coordinate column" id="box-24-7"></div>
+	</div>
+	<div class="row15">
+		<div class="coordinate column" id="box-1-8" ></div>
+		<div class="coordinate column" id="box-2-8" ></div>
+		<div class="coordinate column" id="box-3-8" ></div>
+		<div class="coordinate column" id="box-4-8" ></div>
+		<div class="coordinate column" id="box-5-8" ></div>
+		<div class="coordinate" id="box-6-8"></div>
+		<div class="coordinate" id="box-7-8"></div>
+		<div class="coordinate" id="box-8-8"></div>
+		<div class="coordinate" id="box-9-8"></div>
+		<div class="coordinate" id="box-10-8"></div>
+		<div class="coordinate" id="box-11-8"></div>
+		<div class="coordinate" id="box-12-8"></div>
+	</div>
+	<div class="row16">
+		<div class="coordinate" id="box-13-8"></div>
+		<div class="coordinate" id="box-14-8"></div>
+		<div class="coordinate" id="box-15-8"></div>
+		<div class="coordinate" id="box-16-8"></div>
+		<div class="coordinate" id="box-17-8"></div>
+		<div class="coordinate" id="box-18-8"></div>
+		<div class="coordinate column" id="box-19-8"></div>
+		<div class="coordinate column" id="box-20-8"></div>
+		<div class="coordinate column" id="box-21-8"></div>
+		<div class="coordinate column" id="box-22-8"></div>
+		<div class="coordinate column" id="box-23-8"></div>
+		<div class="coordinate column" id="box-24-8"></div>
+	</div>
+	<div class="row17">
+		<div class="coordinate column" id="box-1-9" ></div>
+		<div class="coordinate column" id="box-2-9" ></div>
+		<div class="coordinate column" id="box-3-9" ></div>
+		<div class="coordinate column" id="box-4-9" ></div>
+		<div class="coordinate column" id="box-5-9" ></div>
+		<div class="coordinate" id="box-6-9"></div>
+		<div class="coordinate" id="box-7-9"></div>
+		<div class="coordinate" id="box-8-9"></div>
+		<div class="coordinate" id="box-9-9"></div>
+		<div class="coordinate" id="box-10-9"></div>
+		<div class="coordinate" id="box-11-9"></div>
+		<div class="coordinate" id="box-12-9"></div>
+	</div>
+	<div class="row18">
+		<div class="coordinate" id="box-13-9"></div>
+		<div class="coordinate" id="box-14-9"></div>
+		<div class="coordinate" id="box-15-9"></div>
+		<div class="coordinate" id="box-16-9"></div>
+		<div class="coordinate" id="box-17-9"></div>
+		<div class="coordinate" id="box-18-9"></div>
+		<div class="coordinate column" id="box-19-9"></div>
+		<div class="coordinate column" id="box-20-9"></div>
+		<div class="coordinate column" id="box-21-9"></div>
+		<div class="coordinate column" id="box-22-9"></div>
+		<div class="coordinate column" id="box-23-9"></div>
+		<div class="coordinate column" id="box-24-9"></div>
+	</div>
+	<div class="row19">
+		<div class="coordinate column" id="box-1-10" ></div>
+		<div class="coordinate column" id="box-2-10" ></div>
+		<div class="coordinate column" id="box-3-10" ></div>
+		<div class="coordinate column" id="box-4-10" ></div>
+		<div class="coordinate column" id="box-5-10" ></div>
+		<div class="coordinate" id="box-6-10"></div>
+		<div class="coordinate" id="box-7-10"></div>
+		<div class="coordinate" id="box-8-10"></div>
+		<div class="coordinate" id="box-9-10"></div>
+		<div class="coordinate" id="box-10-10"></div>
+		<div class="coordinate" id="box-11-10"></div>
+		<div class="coordinate" id="box-12-10"></div>
+	</div>
+	<div class="row20">
+		<div class="coordinate" id="box-13-10"></div>
+		<div class="coordinate" id="box-14-10"></div>
+		<div class="coordinate" id="box-15-10"></div>
+		<div class="coordinate" id="box-16-10"></div>
+		<div class="coordinate" id="box-17-10"></div>
+		<div class="coordinate" id="box-18-10"></div>
+		<div class="coordinate column" id="box-19-10"></div>
+		<div class="coordinate column" id="box-20-10"></div>
+		<div class="coordinate column" id="box-21-10"></div>
+		<div class="coordinate column" id="box-22-10"></div>
+		<div class="coordinate column" id="box-23-10"></div>
+		<div class="coordinate column" id="box-24-10"></div>
+	</div>
+	<div class="row21">
+		<div class="coordinate column" id="box-1-11" ></div>
+		<div class="coordinate column" id="box-2-11" ></div>
+		<div class="coordinate column" id="box-3-11" ></div>
+		<div class="coordinate column" id="box-4-11" ></div>
+		<div class="coordinate column" id="box-5-11" ></div>
+		<div class="coordinate" id="box-6-11"></div>
+		<div class="coordinate" id="box-7-11"></div>
+		<div class="coordinate" id="box-8-11"></div>
+		<div class="coordinate" id="box-9-11"></div>
+		<div class="coordinate" id="box-10-11"></div>
+		<div class="coordinate" id="box-11-11"></div>
+		<div class="coordinate" id="box-12-11"></div>
+		</div>
+		<div class="row22">
+			<div class="coordinate" id="box-13-11"></div>
+			<div class="coordinate" id="box-14-11"></div>
+			<div class="coordinate" id="box-15-11"></div>
+			<div class="coordinate" id="box-16-11"></div>
+			<div class="coordinate" id="box-17-11"></div>
+			<div class="coordinate" id="box-18-11"></div>
+			<div class="coordinate column" id="box-19-11"></div>
+			<div class="coordinate column" id="box-20-11"></div>
+			<div class="coordinate column" id="box-21-11"></div>
+			<div class="coordinate column" id="box-22-11"></div>
+			<div class="coordinate column" id="box-23-11"></div>
+			<div class="coordinate column" id="box-24-11"></div>
+		</div>
+		<div class="row23">
+		<div class="coordinate column" id="box-1-12" ></div>
+		<div class="coordinate column" id="box-2-12" ></div>
+		<div class="coordinate column" id="box-3-12" ></div>
+		<div class="coordinate column" id="box-4-12" ></div>
+		<div class="coordinate column" id="box-5-12" ></div>
+		<div class="coordinate" id="box-6-12"></div>
+		<div class="coordinate" id="box-7-12"></div>
+		<div class="coordinate" id="box-8-12"></div>
+		<div class="coordinate" id="box-9-12"></div>
+		<div class="coordinate" id="box-10-12"></div>
+		<div class="coordinate" id="box-11-12"></div>
+		<div class="coordinate" id="box-12-12"></div>
+		</div>
+		<div class="row24">
+			<div class="coordinate" id="box-13-12"></div>
+			<div class="coordinate" id="box-14-12"></div>
+			<div class="coordinate" id="box-15-12"></div>
+			<div class="coordinate" id="box-16-12"></div>
+			<div class="coordinate" id="box-17-12"></div>
+			<div class="coordinate" id="box-18-12"></div>
+			<div class="coordinate column" id="box-19-12"></div>
+			<div class="coordinate column" id="box-20-12"></div>
+			<div class="coordinate column" id="box-21-12"></div>
+			<div class="coordinate column" id="box-22-12"></div>
+			<div class="coordinate column" id="box-23-12"></div>
+			<div class="coordinate column" id="box-24-12"></div>
+		</div> 
+		<div class="row25">
+		<div class="coordinate column" id="box-1-13" ></div>
+		<div class="coordinate column" id="box-2-13" ></div>
+		<div class="coordinate column" id="box-3-13" ></div>
+		<div class="coordinate column" id="box-4-13" ></div>
+		<div class="coordinate column" id="box-5-13" ></div>
+		<div class="coordinate" id="box-6-13"></div>
+		<div class="coordinate" id="box-7-13"></div>
+		<div class="coordinate" id="box-8-13"></div>
+		<div class="coordinate" id="box-9-13"></div>
+		<div class="coordinate" id="box-10-13"></div>
+		<div class="coordinate" id="box-11-13"></div>
+		<div class="coordinate" id="box-12-13"></div>
+		</div>
+		<div class="row26">
+			<div class="coordinate" id="box-13-13"></div>
+			<div class="coordinate" id="box-14-13"></div>
+			<div class="coordinate" id="box-15-13"></div>
+			<div class="coordinate" id="box-16-13"></div>
+			<div class="coordinate" id="box-17-13"></div>
+			<div class="coordinate" id="box-18-13"></div>
+			<div class="coordinate column" id="box-19-13"></div>
+			<div class="coordinate column" id="box-20-13"></div>
+			<div class="coordinate column" id="box-21-13"></div>
+			<div class="coordinate column" id="box-22-13"></div>
+			<div class="coordinate column" id="box-23-13"></div>
+			<div class="coordinate column" id="box-24-13"></div>
+		</div>
+		
+		<div class="row27">
+		<div class="coordinate column" id="box-1-14" ></div>
+		<div class="coordinate column" id="box-2-14" ></div>
+		<div class="coordinate column" id="box-3-14" ></div>
+		<div class="coordinate column" id="box-4-14" ></div>
+		<div class="coordinate column" id="box-5-14" ></div>
+		<div class="coordinate" id="box-6-14"></div>
+		<div class="coordinate" id="box-7-14"></div>
+		<div class="coordinate" id="box-8-14"></div>
+		<div class="coordinate" id="box-9-14"></div>
+		<div class="coordinate" id="box-10-14"></div>
+		<div class="coordinate" id="box-11-14"></div>
+		<div class="coordinate" id="box-12-14"></div>
+		</div>
+		<div class="row28">
+			<div class="coordinate" id="box-13-14"></div>
+			<div class="coordinate" id="box-14-14"></div>
+			<div class="coordinate" id="box-15-14"></div>
+			<div class="coordinate" id="box-16-14"></div>
+			<div class="coordinate" id="box-17-14"></div>
+			<div class="coordinate" id="box-18-14"></div>
+			<div class="coordinate column" id="box-19-14"></div>
+			<div class="coordinate column" id="box-20-14"></div>
+			<div class="coordinate column" id="box-21-14"></div>
+			<div class="coordinate column" id="box-22-14"></div>
+			<div class="coordinate column" id="box-23-14"></div>
+			<div class="coordinate column" id="box-24-14"></div>
+		</div>
+		<div class="row29">
+		<div class="coordinate column" id="box-1-15" ></div>
+		<div class="coordinate column" id="box-2-15" ></div>
+		<div class="coordinate column" id="box-3-15" ></div>
+		<div class="coordinate column" id="box-4-15" ></div>
+		<div class="coordinate column" id="box-5-15" ></div>
+		<div class="coordinate" id="box-6-15"></div>
+		<div class="coordinate" id="box-7-15"></div>
+		<div class="coordinate" id="box-8-15"></div>
+		<div class="coordinate" id="box-9-15"></div>
+		<div class="coordinate" id="box-10-15"></div>
+		<div class="coordinate" id="box-11-15"></div>
+		<div class="coordinate" id="box-12-15"></div>
+		</div>
+		<div class="row30">
+			<div class="coordinate" id="box-13-15"></div>
+			<div class="coordinate" id="box-14-15"></div>
+			<div class="coordinate" id="box-15-15"></div>
+			<div class="coordinate" id="box-16-15"></div>
+			<div class="coordinate" id="box-17-15"></div>
+			<div class="coordinate" id="box-18-15"></div>
+			<div class="coordinate column" id="box-19-15"></div>
+			<div class="coordinate column" id="box-20-15"></div>
+			<div class="coordinate column" id="box-21-15"></div>
+			<div class="coordinate column" id="box-22-15"></div>
+			<div class="coordinate column" id="box-23-15"></div>
+			<div class="coordinate column" id="box-24-15"></div>
+		</div>
+		<div class="row31">
+		<div class="coordinate column" id="box-1-16" ></div>
+		<div class="coordinate column" id="box-2-16" ></div>
+		<div class="coordinate column" id="box-3-16" ></div>
+		<div class="coordinate column" id="box-4-16" ></div>
+		<div class="coordinate column" id="box-5-16" ></div>
+		<div class="coordinate" id="box-6-16"></div>
+		<div class="coordinate" id="box-7-16"></div>
+		<div class="coordinate" id="box-8-16"></div>
+		<div class="coordinate" id="box-9-16"></div>
+		<div class="coordinate" id="box-10-16"></div>
+		<div class="coordinate" id="box-11-16"></div>
+		<div class="coordinate" id="box-12-16"></div>
+		</div>
+		<div class="row32">
+			<div class="coordinate" id="box-13-16"></div>
+			<div class="coordinate" id="box-14-16"></div>
+			<div class="coordinate" id="box-15-16"></div>
+			<div class="coordinate" id="box-16-16"></div>
+			<div class="coordinate" id="box-17-16"></div>
+			<div class="coordinate" id="box-18-16"></div>
+			<div class="coordinate column" id="box-19-16"></div>
+			<div class="coordinate column" id="box-20-16"></div>
+			<div class="coordinate column" id="box-21-16"></div>
+			<div class="coordinate column" id="box-22-16"></div>
+			<div class="coordinate column" id="box-23-16"></div>
+			<div class="coordinate column" id="box-24-16"></div>
+		</div>
+		<div class="row33">
+		<div class="coordinate column" id="box-1-17" ></div>
+		<div class="coordinate column" id="box-2-17" ></div>
+		<div class="coordinate column" id="box-3-17" ></div>
+		<div class="coordinate column" id="box-4-17" ></div>
+		<div class="coordinate column" id="box-5-17" ></div>
+		<div class="coordinate" id="box-6-17"></div>
+		<div class="coordinate" id="box-7-17"></div>
+		<div class="coordinate" id="box-8-17"></div>
+		<div class="coordinate" id="box-9-17"></div>
+		<div class="coordinate" id="box-10-17"></div>
+		<div class="coordinate" id="box-11-17"></div>
+		<div class="coordinate" id="box-12-17"></div>
+		</div>
+		<div class="row34">
+			<div class="coordinate" id="box-13-17"></div>
+			<div class="coordinate" id="box-14-17"></div>
+			<div class="coordinate" id="box-15-17"></div>
+			<div class="coordinate" id="box-16-17"></div>
+			<div class="coordinate" id="box-17-17"></div>
+			<div class="coordinate" id="box-18-17"></div>
+			<div class="coordinate column" id="box-19-17"></div>
+			<div class="coordinate column" id="box-20-17"></div>
+			<div class="coordinate column" id="box-21-17"></div>
+			<div class="coordinate column" id="box-22-17"></div>
+			<div class="coordinate column" id="box-23-17"></div>
+			<div class="coordinate column" id="box-24-17"></div>
+		</div>
+		<div class="row35">
+			<div class="coordinate column" id="box-1-18" ></div>
+			<div class="coordinate column" id="box-2-18" ></div>
+			<div class="coordinate column" id="box-3-18" ></div>
+			<div class="coordinate column" id="box-4-18" ></div>
+			<div class="coordinate column" id="box-5-18" ></div>
+			<div class="coordinate" id="box-6-18"></div>
+			<div class="coordinate" id="box-7-18"></div>
+			<div class="coordinate" id="box-8-18"></div>
+			<div class="coordinate" id="box-9-18"></div>
+			<div class="coordinate" id="box-10-18"></div>
+			<div class="coordinate" id="box-11-18"></div>
+			<div class="coordinate" id="box-12-18"></div>
+		</div>
+		<div class="row36">
+			<div class="coordinate" id="box-13-18"></div>
+			<div class="coordinate" id="box-14-18"></div>
+			<div class="coordinate" id="box-15-18"></div>
+			<div class="coordinate" id="box-16-18"></div>
+			<div class="coordinate" id="box-17-18"></div>
+			<div class="coordinate" id="box-18-18"></div>
+			<div class="coordinate column" id="box-19-18"></div>
+			<div class="coordinate column" id="box-20-18"></div>
+			<div class="coordinate column" id="box-21-18"></div>
+			<div class="coordinate column" id="box-22-18"></div>
+			<div class="coordinate column" id="box-23-18"></div>
+			<div class="coordinate column" id="box-24-18"></div>
+		</div>
+		<div class="row37">
+			<div class="coordinate column" id="box-1-19" ></div>
+			<div class="coordinate column" id="box-2-19" ></div>
+			<div class="coordinate column" id="box-3-19" ></div>
+			<div class="coordinate column" id="box-4-19" ></div>
+			<div class="coordinate column" id="box-5-19" ></div>
+			<div class="coordinate" id="box-6-19"></div>
+			<div class="coordinate" id="box-7-19"></div>
+			<div class="coordinate" id="box-8-19"></div>
+			<div class="coordinate" id="box-9-19"></div>
+			<div class="coordinate" id="box-10-19"></div>
+			<div class="coordinate" id="box-11-19"></div>
+			<div class="coordinate" id="box-12-19"></div>
+		</div>
+		<div class="row38">
+			<div class="coordinate" id="box-13-19"></div>
+			<div class="coordinate" id="box-14-19"></div>
+			<div class="coordinate" id="box-15-19"></div>
+			<div class="coordinate" id="box-16-19"></div>
+			<div class="coordinate" id="box-17-19"></div>
+			<div class="coordinate" id="box-18-19"></div>
+			<div class="coordinate column" id="box-19-19"></div>
+			<div class="coordinate column" id="box-20-19"></div>
+			<div class="coordinate column" id="box-21-19"></div>
+			<div class="coordinate column" id="box-22-19"></div>
+			<div class="coordinate column" id="box-23-19"></div>
+			<div class="coordinate column" id="box-24-19"></div>
+		</div>
+		<div class="row39">
+		<div class="coordinate column" id="box-1-20" ></div>
+		<div class="coordinate column" id="box-2-20" ></div>
+		<div class="coordinate column" id="box-3-20" ></div>
+		<div class="coordinate column" id="box-4-20" ></div>
+		<div class="coordinate column" id="box-5-20" ></div>
+		<div class="coordinate" id="box-6-20"></div>
+		<div class="coordinate" id="box-7-20"></div>
+		<div class="coordinate" id="box-8-20"></div>
+		<div class="coordinate" id="box-9-20"></div>
+		<div class="coordinate" id="box-10-20"></div>
+		<div class="coordinate" id="box-11-20"></div>
+		<div class="coordinate" id="box-12-20"></div>
+		</div>
+	<div class="row40">
+		<div class="coordinate" id="box-13-20"></div>
+		<div class="coordinate" id="box-14-20"></div>
+		<div class="coordinate" id="box-15-20"></div>
+		<div class="coordinate" id="box-16-20"></div>
+		<div class="coordinate" id="box-17-20"></div>
+		<div class="coordinate" id="box-18-20"></div>
+		<div class="coordinate column" id="box-19-20"></div>
+		<div class="coordinate column" id="box-20-20"></div>
+		<div class="coordinate column" id="box-21-20"></div>
+		<div class="coordinate column" id="box-22-20"></div>
+		<div class="coordinate column" id="box-23-20"></div>
+		<div class="coordinate column" id="box-24-20"></div>
+	</div>
+	<div id="control-center" onclick="animateControlCenter();" style="transform: rotate(90deg);">
+		<div class="control-center-line" style="background-color: rgb(207, 117, 0)"></div><br>
+		<div class="control-center-line" style="top:-5px;background-color: rgb(207, 117, 0)"></div><br>
+		<div class="control-center-line" style="top:-10px;background-color: rgb(207, 117, 0)"></div><br>
+	</div>
+
+<!-- control center -->
+	<div id="control-center-div">
+		<br><br><br>
+		<div onclick="redirect_index('profile')"><a href="#" class="control-center-link border-ccl"><span id="indexOrProfile">
+			Index
+		</span></a></div>
+		<div onclick="redirect_index('covid')" ><a href="#" class="control-center-link border-ccl"><span>COVID Info</span></a></div>
+		<div  onclick="redirect_index('question')" ><a href="#" class="control-center-link border-ccl"><span>Questionnaire</span></a></div>
+		<div  onclick="redirect_index('faq')" ><a href="#" class="control-center-link border-ccl"><span >FAQ</span></a></div>
+
+		<br><br>
+		<br><br><br>
+		<div id="bottom-cc">
+		<a href="#" style="padding-left: 7%;">
+			<button type="button" id="login-button" class="login-or-logout" onclick="login()">Login</button>
+		</a>
+		<a href="#" style="margin-left: 1px;">	
+			<button type="button" id="logout-button"  class="login-or-logout" onclick="logout()">Logout</button>
+		</a>
+		</div>
+	</div>
+	</div>
+
+    <script type="text/javascript">
+		var logged_in = localStorage.getItem('loggedin')
+
+		if(logged_in == 'true'){
+			document.getElementById('indexOrProfile').innerHTML = 'Profile'
+
+		}
+	
+		function redirect_index(src_page){
+			// checks if user logged in if yes shows profile if not goes to index
+			if (src_page == 'profile'){
+				if (localStorage.getItem('loggedin') != 'true'){
+
+						setTimeout(() => {window.parent.location.href = "../index.html"}, 500)
+						
+					}
+
+					else{
+						localStorage.setItem('redirect_time', 50)
+						localStorage.setItem('redirect', '../homepage.html')
+						window.parent.location.href= '../resources/loading.html'
+					
+						
+					}
+					
+					return
+				}
+
+				else if (src_page == 'faq'){
+					localStorage.setItem('redirect_time', 10)
+					localStorage.setItem('redirect', '../faq.html')
+				}
+				else if (src_page == 'covid'){
+					localStorage.setItem('redirect_time', 542)
+					localStorage.setItem('redirect', '../covid-info/covid-info.html')
+				}
+				else if (src_page == 'question'){
+					localStorage.setItem('redirect_time', 878)
+					localStorage.setItem('redirect', '../questionnare/questionnare.html')
+				}
+
+				window.parent.location.href= '../resources/loading.html'
+
+			}
+		</script>
+	    <script>
+			function login(){
+				localStorage.setItem('redirect_time', 1)
+				localStorage.setItem('redirect', '../login-html/login.html')
+				setTimeout(() => window.parent.location.href = '../resources/loading.html',540 )
+				}
+			function logout(){
+				localStorage.setItem('loggedin', false)
+				localStorage.setItem('redirect_time', 2790)
+				localStorage.setItem('redirect', '../index.html')
+				setTimeout(() => window.parent.location.href = '../resources/loading.html',2000 )
+			}
+		</script>
+	<div id="outerStats">
+	<div id="infoStatsdiv">
+		<p id="infoStats"></p>
+	</div>
+	</div>
+	<script src="resources-map/map.js"></script>
+
+</body>
+</html>	
