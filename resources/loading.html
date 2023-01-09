@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Redirecting...</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/gif/png" href="images/icon/logo.png">
+	<script src="scripts/loading.js"></script>
+	<style>
+		
+		body{
+			background-color: white;
+		}
+
+		img{
+			position: absolute;
+			top: 40%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+			animation-name:loading;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+		}
+
+
+		@keyframes loading{
+			0%{transform: rotate(0deg);}
+			100%{transform: rotate(360deg);}
+		}
+
+	</style>	
+</head>
+<body>
+	<img src="images/loading.png" width="10%;">
+
+</body>
+</html>
