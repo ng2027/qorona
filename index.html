@@ -1,0 +1,148 @@
+<!-- Qorona INDEX MAIN PAGE -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Qorona</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/gif/png" href="resources/images/icon/logo.png">
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/login.css">
+	<script src="resources/scripts/control-center-animation.js"></script>
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/control-center.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+	<meta name="author" acontent="Qorona Limited">
+	<meta name="description" content="prevent COVID-19, population density predictor, COVID questionnare, artificial intelligence">
+	<!-- links all the resources required -->
+	<style>
+		body {
+			overflow: hidden;
+			background-image: linear-gradient(to right, white, #800000);
+		}
+	</style>
+
+	<!-- css for the body 
+	
+	script tag to check if user is already logged in or not. if logged in redirects to the profile page
+	-->
+
+	<script>
+		var is_logged_in = localStorage.getItem('loggedin')
+
+		if (is_logged_in == 'true'){
+			window.parent.location.href = 'homepage.html'
+		}
+
+	</script>
+
+	<!-- js script used to redirect to the various webpages-->
+	<script type="text/javascript">
+		function redirect_index(src_page){
+			
+			if (src_page == 'map'){
+				localStorage.setItem('redirect_time', 1320)
+				localStorage.setItem('redirect', '../stats-map/map.html')
+			}
+
+			else if (src_page == 'covid'){
+				localStorage.setItem('redirect_time', 500)
+				localStorage.setItem('redirect', '../covid-info/covid-info.html')
+			}
+			else if (src_page == 'question'){
+				localStorage.setItem('redirect_time', 2600)
+				localStorage.setItem('redirect', '../questionnare/questionnare.html')
+			}
+			else if (src_page == 'faq'){
+				localStorage.setItem('redirect_time', 100)
+				localStorage.setItem('redirect', '../faq.html')
+			}
+
+			window.parent.location.href= 'resources/loading.html'
+
+		}
+	</script>
+
+</head>
+
+<body>
+	<!-- website menu button (control center) -->
+
+	<div id="control-center" onclick="animateControlCenter();" style="transform: rotate(90deg);">
+		<div class="control-center-line"></div><br>
+		<div class="control-center-line" style="top:-5px;"></div><br>
+		<div class="control-center-line" style="top:-10px;"></div><br>
+	</div>
+
+
+	<div id="control-center-div" >
+		<br><br><br>
+		<div onclick="redirect_index('map')"><a href="#" class="control-center-link border-ccl" ><span>
+					Stats map
+				</span></a></div>
+		<div onclick="redirect_index('covid')"><a href="#" class="control-center-link border-ccl" ><span>COVID Info</span></a></div>
+		<div onclick="redirect_index('question')"><a href="#" class="control-center-link border-ccl" ><span>Questionnaire</span></a>
+		</div>
+		<div><a href="faq.html"
+				class="control-center-link border-ccl"><span>FAQ</span></a></div>
+
+		<br><br>
+		<br><br><br>
+		<div id="bottom-cc">
+			<a href="login-html/login.html" style="padding-left: 7%;">
+				<button type="button" id="login-button" class="login-or-logout">Login</button>
+			</a>
+			<a href="#" style="margin-left: 1px;">
+				<button type="button" id="logout-button" class="login-or-logout">Logout</button>
+			</a>
+		</div>
+	</div>
+
+
+	<div id="central-container">
+		<div id="logo-div">
+			<img id="logo" src="resources/images/icon/no-background-logo.gif"
+				style="margin-left: 400px; margin-right: 600px; z-index: 0;">
+		</div>
+
+
+	</div>
+	<div id="secondary-letters">
+
+	<div class="letter-logo" id="LL1">
+		<img src="resources/images/icon/O-logo.png">
+	</div>
+	<div>
+		<div class="letter-logo" id="LL2">
+			<img src="resources/images/icon/R-logo.png">
+		</div>
+		<div class="letter-logo" id="LL3">
+			<img src="resources/images/icon/O-logo.png">
+		</div>
+		<div class="letter-logo" id="LL4">
+			 <img src="resources/images/icon/N-logo.png">
+		</div>
+		<div class="letter-logo" id="LL5"> <img src="resources/images/icon/A-logo.png">
+		</div>
+	</div>
+
+
+	<!-- login iframe -->
+	<div class="login-container white-background" id="login-container">
+
+
+		<iframe src="login-html/homepage/login.html" class="iframe-login" scrolling="no" frameborder="0"></iframe>
+
+
+	</div>
+
+	
+
+
+
+
+</body>
+
+</html>

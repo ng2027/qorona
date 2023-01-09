@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Qorona - Profile</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/gif/png" href="resources/images/icon/logo.png">
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/login.css">
+	<script src="resources/scripts/control-center-animation.js"></script>
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/control-center.css">
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/profile.css">
+	<script src="resources/scripts/cc.js"></script>
+
+	<meta name= "author" acontent="Qorona Limited">
+	<meta name="description" content="..."> </head>
+	<style type="text/css">
+		body{
+			background-color: #A80C3B;
+		}
+
+		table{
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%, 0%);
+		}
+		img.loading-logo{
+			position: absolute;
+			top: 40%;
+			left: 45%;
+			transform: translate(-50%, -50%);
+			animation-name:loading;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+		}
+
+		/*css for loading image in covid test kit section*/
+		@keyframes loading{
+			0%{transform: rotateX(0deg);}
+			100%{transform: rotateX(360deg);}
+		}
+
+
+
+	</style>
+ 
+ <!-- heck if user is logged in or not -->
+	<script>
+		var is_logged_in = localStorage.getItem('loggedin')
+
+		if (is_logged_in != 'true'){
+			window.parent.location.href = 'index.html'
+		}
+		function logout(){
+				localStorage.setItem('loggedin', false)
+				localStorage.setItem('redirect_time', 3569)
+				localStorage.setItem('redirect', '../index.html')
+				setTimeout(() => window.parent.location.href = 'resources/loading.html',2000 )
+		}
+
+		function login(){
+				setTimeout(() => window.parent.location.href = 'login-html/login.html',215 )
+		}
+	</script>
+
+<body>
+	<!-- command center / control center -->
+	<header style="height:20%;">
+
+		<div id="control-center" onclick="animateControlCenter();" style="transform: rotate(90deg);">
+			<div class="control-center-line"></div><br>
+			<div class="control-center-line" style="top:-5px;"></div><br>
+			<div class="control-center-line" style="top:-10px;"></div><br>
+		</div>
+
+
+		<div id="control-center-div">
+			<br><br><br>
+			<div onclick="redirect_index('map')"><a href="#" class="control-center-link border-ccl" ><span>
+				Stats Map
+			</span></a></div>
+			<div onclick="redirect_index('covid')"><a href="#" class="control-center-link border-ccl" ><span>COVID Info</span></a></div>
+			<div onclick="redirect_index('question')"><a href="#" class="control-center-link border-ccl" >Questionnaire<span></span></a></div>
+			<div onclick="redirect_index('faq')"><a href="#" class="control-center-link border-ccl" ><span >FAQ</span></a></div>
+			
+
+			<br><br>
+			<br><br><br>
+			<div id="bottom-cc">
+			<a href="#" style="padding-left: 7%;">
+				<button type="button" id="login-button" class="login-or-logout" onclick="login()">Login</button>
+			</a>
+			<a href="#" style="margin-left: 1px;">	
+				<button type="button" id="logout-button"  class="login-or-logout" onclick="logout()">Logout</button>
+			</a>
+			</div>
+		</div>
+	<script type="text/javascript">
+		var logged_in = localStorage.getItem('loggedin')
+
+
+		function redirect_index(src_page){
+			//redirects
+
+			if (src_page == 'faq'){
+				localStorage.setItem('redirect_time', 50)
+				localStorage.setItem('redirect', '../faq.html')
+			}
+
+			else if (src_page == 'covid'){
+				localStorage.setItem('redirect_time', 0)
+				localStorage.setItem('redirect', '../covid-info/covid-info.html')
+			}
+			else if (src_page == 'question'){
+				localStorage.setItem('redirect_time', 2600)
+				localStorage.setItem('redirect', '../questionnare/questionnare.html')
+			}
+			else if (src_page == 'map'){
+				localStorage.setItem('redirect_time', 1356)
+				localStorage.setItem('redirect', '../stats-map/map.html')
+			}
+			window.parent.location.href= 'resources/loading.html'}
+		</script>
+
+
+		<div class="profile-title">
+			<h1>My Profile</h1>
+		</div>
+
+		<div id="date">
+
+		</div>
+		<hr id="hr">
+
+	</header><br><br>
+
+
+	<div style="position: absolute;width: 100%;">
+		<table width="90%" >
+			<tr>
+				<td rowspan="4"> <img src="qr-code/healthy.png" id="qr-code" width="20%;"></td>
+				<td class="td-middle">Name:</td>
+				<td id="name" class="value-table" style="left:-35%"></td>
+				
+			</tr>
+			<tr>
+				<td class="td-middle">Qatar ID:</td>
+				<td id="qid" class="value-table" style="left:-35%"></td>
+				
+			</tr>
+			<tr>
+				<td class="td-middle">Phone Number:</td>
+				<td id="phone" class="value-table" style="left:-30%"></td>
+				
+			</tr>
+			<tr>
+				<td class="td-middle">Home Address:</td>
+				<td id="address" class="value-table" style="left:-30%"></td>
+				
+			</tr>
+
+
+
+
+		</table>
+	</div>
+
+	<div class="prev-visit" id="content-div">
+		<h1 class="prev-visit-h1">Last Visited Places</h1>
+
+		<br>
+
+		<div class="visited_place" id="visited_place0">
+			<span class="location-title" id="location0" ></span>
+			<br><br>
+			<span class="risk_rate" id="risk0"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place1">
+			<span class="location-title" id="location1"></span>
+			<br><br>
+			<span class="risk_rate" id="risk1"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place2" >
+			<span class="location-title" id="location2"></span>
+			<br><br>
+			<span class="risk_rate" id="risk2"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place3">
+			<span class="location-title" id="location3"></span>
+			<br><br>
+			<span class="risk_rate" id="risk3"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place4">
+			<span class="location-title" id="location4"></span>
+			<br><br>
+			<span class="risk_rate" id="risk4"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place5">
+			<span class="location-title" id="location5"></span>
+			<br><br>
+			<span class="risk_rate" id="risk5"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place6">
+			<span class="location-title" id="location6"></span>
+			<br><br>
+			<span class="risk_rate" id="risk6"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place7">
+			<span class="location-title" id="location7"></span>
+			<br><br>
+			<span class="risk_rate" id="risk7"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place8">
+			<span class="location-title" id="location8"></span>
+			<br><br>
+			<span class="risk_rate" id="risk8"></span>
+		</div><br>
+		<div class="visited_place" id="visited_place9">
+			<span class="location-title" id="location9"></span>
+			<br><br>
+			<span class="risk_rate" id="risk9"></span>
+		</div><br>
+
+
+</div>
+				
+		</div> 
+
+	</div>
+
+	<div class="lower-div" >
+		<div class="covid" onclick="covid_test()">
+			<span class="covid-text">Request A Test</span>
+		</div>
+
+		<br><br>
+		<div class="covid" onclick="vacinate()">
+			<span class="covid-text">Get Vaccinated</span>
+			
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript" src="resources/scripts/homepage.js"></script>
+
+	<!-- script for request vaccine and requesting a test kit etc -->
+</body>
+</html>

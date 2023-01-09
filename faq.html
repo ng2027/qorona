@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<!-- Page about qorona the project and some information on covid -->
+
+<html>
+<head>
+	<title>Qorona - About Us</title>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/gif/png" href="resources/images/icon/logo.png">
+	<style type="text/css">
+		body{
+			background-color: #A80C3B;
+			overflow-y: scroll;
+		}
+
+		section{
+			margin-left:4%;
+		}
+	</style>
+	<!-- link-->
+	<meta name= "author" acontent="Qorona Limited">
+	<meta name="description" content="prevent COVID-19, population density predictor, COVID questionnare, artificial intelligence">	
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/login.css">
+	<script src="resources/scripts/control-center-animation.js"></script>
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/control-center.css">
+	<script src="resources/scripts/cc.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<link rel="stylesheet" type="text/css" href="resources/stylesheets/faq.css">
+</head>
+<body>
+	<header style="height:20%;">
+<!--  CONTROL CENTER / MENU  -->
+		<div id="control-center" onclick="animateControlCenter();" style="transform: rotate(90deg);">
+			<div class="control-center-line"></div><br>
+			<div class="control-center-line" style="top:-5px;"></div><br>
+			<div class="control-center-line" style="top:-10px;"></div><br>
+		</div>
+
+
+
+		<div id="control-center-div">
+			<br><br><br>
+			<div onclick="redirect_index('profile')"><a href="#" class="control-center-link border-ccl" id="indexOrProfile" ><span>
+				Index
+			</span></a></div>
+			<div onclick="redirect_index('map')"><a href="#" class="control-center-link border-ccl" ><span>Stats Map</span></a></div>
+			<div onclick="redirect_index('covid')"><a href="#" class="control-center-link border-ccl" ><span>COVID Info</span></a></div>
+			<div onclick="redirect_index('question')"><a href="#" class="control-center-link border-ccl" ><span >Questionnaire</span></a></div>
+
+			<br><br>
+			<br><br><br>
+			<div id="bottom-cc">
+			<a href="#" style="padding-left: 7%;" onclick="login()">
+				<button type="button" id="login-button" class="login-or-logout">Login</button>
+			</a>
+			<a href="#" style="margin-left: 1px;">	
+				<button type="button" id="logout-button"  class="login-or-logout" onclick="logout()">Logout</button>
+			</a>
+			</div>
+		</div>
+
+		<!-- js functions for redirect -->
+		<script type="text/javascript">
+			var logged_in = localStorage.getItem('loggedin')
+
+			if(logged_in == 'true'){
+				document.getElementById('indexOrProfile').innerHTML = 'Profile'
+
+			}
+	
+			function redirect_index(src_page){
+				// checks if user logged in if yes shows profile if not goes to index
+				if (src_page == 'profile'){
+					if (localStorage.getItem('loggedin') != 'true'){
+
+						setTimeout(() => {window.parent.location.href = "index.html"}, 200)
+						
+					}
+
+					else{
+						window.parent.location.href = "homepage.html"
+						
+						
+						
+					}
+					
+					return
+				}
+
+				else if (src_page == 'covid'){
+					localStorage.setItem('redirect_time', 100)
+					localStorage.setItem('redirect', '../covid-info/covid-info.html')
+				}
+				else if (src_page == 'question'){
+					localStorage.setItem('redirect_time', 2600)
+					localStorage.setItem('redirect', '../questionnare/questionnare.html')
+				}
+				else if (src_page == 'map'){
+					localStorage.setItem('redirect_time', 500)
+					localStorage.setItem('redirect', '../stats-map/map.html')
+				}
+
+				window.parent.location.href= 'resources/loading.html'
+
+			}
+			// login logout functions
+			function logout(){
+				localStorage.setItem('loggedin', false)
+				localStorage.setItem('redirect_time', 2640)
+				localStorage.setItem('redirect', '../index.html')
+				setTimeout(() => window.parent.location.href = 'resources/loading.html',2000 )
+			}
+
+			function login(){
+				setTimeout(() => window.parent.location.href = 'login-html/login.html',215 )
+			}
+		</script>
+
+
+		<div >
+			<h1 class="faq-title">About Us</h1>
+		</div>
+
+		<!-- qr code displayed if user is logged in -->
+
+		<div id="pfp">
+			<img src="qr-code/healthy.png" id="pfp_img" height="35%">
+		</div>
+	</header>
+	<hr id="hr"><br>
+	<section >
+		<!-- suggestion div  -->
+		<div class="suggestion">
+			<div class="suggest-title">
+			<h3 >Suggestions</h3>
+			</div>
+			<p>
+			We would like to hear your opinion to improve our website.
+
+			</p><br>
+			<label class="label-div">What is your opinion on this website?</label><br>
+			<div class="feedback-div" align="center">
+				<form id="suggestion-form">
+				<input type="text" placeholder="Name" id="suggest-name"><br><br>
+				<input type="text" placeholder="Your Email Address" id="suggest-email"><br><br>
+				<textarea placeholder="Comments" id="suggest"></textarea><br><br>
+				<button class="suggestion-submit" onclick="suggest_submit()">Submit</button>
+				</form>
+
+			</div>
+
+		</div>
+
+		<!-- function used to send feedback to the qorona's official support email -->
+		<script type="text/javascript">
+			function suggest_submit(){
+				var name_user = document.getElementById('suggest-name').value
+				var email_user = document.getElementById('suggest-email').value
+				var suggestion = document.getElementById('suggest').value
+				
+				subject_email = `${name_user} has a suggestion <br> ${suggestion} <br><br> Contact: ${email_user}`
+				Email.send({
+
+			    Host : "smtp.gmail.com",
+			    Username : "info.qorona@gmail.com",
+			    Password : "vUA73nWFkTrAjdwU",
+			    To : "info.qorona@gmail.com",
+			    From : "info.qorona@gmail.com",
+			    Subject : "Qorona Suggestion",
+
+			    Body: subject_email
+				}).then(
+				alert('Suggestion has been sent')
+
+
+				);
+				document.getElementById('suggestion-form').reset()
+
+			}
+		</script>
+	</section>
+	<br><br>
+	<!-- a description about our project -->
+	<section class="about-us">
+		<h2>Qorona Team</h2>
+		<div>
+			The Qorona Team is proud to present to you what we believe is a strong tool to overcome the virus that has taken the world by surprise. We have worked on this project for months now, and we are ready to fight COVID-19 using a combination of creativity, artificial intelligence, and perseverance. <br> <br>
+
+			We are a group of 3 high-schoolers with ambitious dreams to use artificial intelligence to try and reduce the ever-lasting strain on our national hospitals. Made up of 2 programmers and one designer and researcher, we have combined our skills to make <b><i style="color: maroon;">Qorona</i></b>
+
+		</div>
+		<br><br>
+		<h2>Why use Qorona?</h2>
+		Qorona uses brand-new, state-of-the-art technology in order to help reduce the spread of COVID-19. Here are some of the features you get the luxury of utilizing by using Qorona: <br><br>
+		<ul>
+			<li>COVID Questionnaire - A questionnaire that makes use of artificial intelligence in order to predict the likelihood of you having the coronavirus, Feel free to try it out  <a href="questionnare/questionnare.html"><b>here</b></a> </li>
+			<li>Book vaccinations and have COVID testing kits delivered right to your doorstep. Click <a href="homepage.html"><b>here</b></a> for more info.</li>
+			<li>View a detailed, live map and view the different areas of Qatar and their relative population densities. Make better decisions on where to head to using <a href="stats-map/map.html"><b>this map.</b></a></li>
+			<li>
+				A <b>clean</b> and <b>modern</b> user interface which makes all of our features available at the tip of your finger.
+			</li>
+		</ul>
+
+		<div>
+
+		</div>
+		<br><br>
+	</section>
+
+	<br>
+
+	<!-- some simple questions related to our project with their answers -->
+	<section class="faq">
+		
+		<h2 >Frequently Asked Questions (FAQ)</h2><br>
+	
+		<details>
+		<summary>How do I protect myself against COVID-19?<hr></summary>
+		<ul>
+			<li>Always wear a mask (N-95 preferred) if you're outdoors.</li>
+			<li>Keep outdoor gatherings limited to 15 people or less.</li>
+			<li>Wash sanitize your hands frequently.</li>
+			<li>Practice social distancing and try to keep a distance of 6 feet between you and other people.</li>
+			<li>Keep up to date with <a href="https://covid19.moph.gov.qa/EN/Pages/default.aspx" target="_blank">the official government's rules and regulations</a> regarding COVID-19.</li>
+		</ul>
+		</details><br>
+		
+		<details>
+		<summary>How does the statistics map work?<hr></summary>
+		<p>Whenever someone enters or leaves a major attraction or location in Qatar, they will have to scan their Qorona code on a QR scanner, This scanner updates our servers with a rough estimate of the population at any given place.</p>
+		</details><br>
+
+		<details>
+		<summary>What do the different colors of the Qorona code indicate?<hr></summary>
+		<ul>
+			<li><span style="color: green">Green: </span>: Healthy</li>
+			<li><span style="color: red">Red: </span>Exposed to COVID-19</li>
+			<li><span style="color: grey">Grey: </span> Suspected</li>
+			<li><span style="color: yellow">Yellow: </span>Quarantined</li>
+		</ul>
+		</details><br>
+
+		<details>
+		<summary>I would like to make a suggestion to the website. <hr></summary>
+		<p>Feel free to contact us by calling <a href="tel:16000">16000</a></p> or by filling the suggestions form on this webpage.
+		</details><br>
+	</section>
+
+	<!-- js script used to check current status of a user to change the qr - code accordingly -->
+
+	<script>
+
+		var logged_in = localStorage.getItem('loggedin')
+		
+		if (logged_in == 'true'){
+			
+			document.getElementById('pfp_img').style.display = 'inherit'
+		}
+		var status = localStorage.getItem('status')
+		console.log(status)
+		if (status == 'healthy'){
+			document.getElementById('pfp_img').src = 'qr-code/healthy.png'
+		}
+		else if (status == 'confirmed'){
+
+			document.getElementById('pfp_img').src = 'qr-code/confirmed.png'
+		}
+		else if (status == 'suspected'){
+			document.getElementById('pfp_img').src = 'qr-code/suspected.png'
+		}
+		else if (status == 'unknown' || status == "quarantined"){
+			document.getElementById('pfp_img').src = 'qr-code/quarantined.png'
+		}
+	</script>
+
+
+</body>
+</html>
